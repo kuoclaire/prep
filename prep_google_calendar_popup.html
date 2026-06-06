@@ -1,0 +1,3663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prep — Agent UX Portfolio Showcase</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+  <style>
+    :root {
+      --g-blue: #1a73e8;
+      --g-blue-hover: #1765cc;
+      --g-blue-light: #e8f0fe;
+      --g-blue-mid: #4285f4;
+      --g-text: #202124;
+      --g-text2: #5f6368;
+      --g-text3: #80868b;
+      --g-border: #dadce0;
+      --g-bg: #f8f9fa;
+      --g-white: #fff;
+      --g-green: #0f9d58;
+      --g-green-light: #e6f4ea;
+      --g-amber: #f9ab00;
+      --g-amber-light: #fef7e0;
+      --g-red: #d93025;
+      --g-red-light: #fce8e6;
+      --g-surface: #fff;
+      --g-hover: #f1f3f4;
+      --font: 'Google Sans Text', Roboto, sans-serif;
+      --font-title: 'Google Sans', sans-serif;
+      --radius: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-round: 24px;
+      --shadow-sm: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+      --shadow-md: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+      --shadow-lg: 0 4px 20px 0 rgba(0,0,0,0.15), 0 1px 5px 0 rgba(0,0,0,0.1);
+      
+      /* Slate Portfolio colors */
+      --port-bg: #0f172a;
+      --port-card: #1e293b;
+      --port-border: #334155;
+      --port-text: #e2e8f0;
+      --port-text-muted: #94a3b8;
+      --port-accent: #3b82f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: #f1f3f4;
+      color: var(--g-text);
+      font-size: 14px;
+      line-height: 1.4;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    /* ── PAGE CONTAINER ── */
+    .showcase-container {
+      display: grid;
+      grid-template-columns: 1fr 390px;
+      gap: 24px;
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1024px) {
+      .showcase-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── BROWSER MOCKUP (LEFT) ── */
+    .browser-frame {
+      background: var(--g-white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--g-border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 680px;
+      position: relative;
+    }
+
+    .browser-toolbar {
+      background: #f1f3f4;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--g-border);
+      height: 44px;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .window-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .browser-address {
+      flex: 1;
+      background: var(--g-white);
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--g-text2);
+      padding: 4px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #dadce0;
+      max-width: 500px;
+    }
+
+    .browser-address i {
+      font-size: 12px;
+      color: var(--g-green);
+    }
+
+    /* ── GOOGLE CALENDAR BACKDROP ── */
+    .cal-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .cal-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      border-bottom: 1px solid var(--g-border);
+      height: 64px;
+    }
+
+    .cal-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cal-logo-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .cal-logo-text {
+      font-family: var(--font-title);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--g-text2);
+    }
+
+    .cal-logo-text span {
+      color: var(--g-text);
+      font-weight: 500;
+    }
+
+    .cal-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 20px;
+    }
+
+    .cal-nav-btn {
+      padding: 6px 16px;
+      border-radius: 4px;
+      border: 1px solid var(--g-border);
+      background: #fff;
+      font-size: 14px;
+      font-family: var(--font);
+      color: var(--g-text);
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .cal-nav-btn:hover {
+      background: var(--g-hover);
+    }
+
+    .cal-nav-arrow {
+      border: none;
+      background: transparent;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--g-text2);
+    }
+
+    .cal-nav-arrow:hover {
+      background: var(--g-hover);
+    }
+
+    .cal-date-title {
+      font-family: var(--font-title);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--g-text);
+      margin-left: 12px;
+    }
+
+    .cal-header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cal-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--g-blue-mid);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* CALENDAR MAIN AREA */
+    .cal-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      overflow: hidden;
+    }
+
+    .cal-sidebar {
+      border-right: 1px solid var(--g-border);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: #fff;
+    }
+
+    .create-btn {
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 24px 8px 16px;
+      border-radius: 24px;
+      background: #fff;
+      border: none;
+      box-shadow: var(--shadow-sm);
+      font-family: var(--font-title);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--g-text);
+      cursor: pointer;
+      transition: box-shadow .15s;
+    }
+
+    .create-btn:hover {
+      box-shadow: var(--shadow-md);
+      background: #fafafa;
+    }
+
+    .mini-cal {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mini-cal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--g-text2);
+      padding: 0 4px;
+    }
+
+    .mini-cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      text-align: center;
+      font-size: 10px;
+    }
+
+    .mini-day-name {
+      font-weight: 500;
+      color: var(--g-text3);
+      padding-bottom: 4px;
+    }
+
+    .mini-day {
+      padding: 4px 0;
+      color: var(--g-text2);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .mini-day:hover {
+      background: var(--g-hover);
+    }
+
+    .mini-day.active {
+      background: var(--g-blue);
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .my-calendars {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--g-text2);
+    }
+
+    .cal-checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      color: var(--g-text);
+    }
+
+    .cal-checkbox-row input {
+      accent-color: var(--g-blue);
+    }
+
+    .cal-content {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      background: #fff;
+    }
+
+    .cal-grid-header {
+      display: grid;
+      grid-template-columns: 50px repeat(7, 1fr);
+      border-bottom: 1px solid var(--g-border);
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 10;
+    }
+
+    .cal-header-cell {
+      border-left: 1px solid var(--g-border);
+      text-align: center;
+      padding: 8px 0;
+      font-size: 11px;
+      color: var(--g-text3);
+      font-weight: 500;
+    }
+
+    .cal-header-cell.today {
+      color: var(--g-blue);
+    }
+
+    .today-num-badge {
+      background: var(--g-blue);
+      color: #fff;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 4px auto 0;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .cal-grid-body {
+      display: grid;
+      grid-template-columns: 50px repeat(7, 1fr);
+      grid-auto-rows: 44px;
+    }
+
+    .time-label {
+      font-size: 10px;
+      color: var(--g-text3);
+      text-align: right;
+      padding-right: 8px;
+      transform: translateY(-7px);
+      user-select: none;
+    }
+
+    .grid-cell {
+      border-left: 1px solid var(--g-border);
+      border-bottom: 1px solid #f1f3f4;
+      position: relative;
+    }
+
+    .event-block {
+      position: absolute;
+      top: 2px;
+      left: 4px;
+      right: 4px;
+      bottom: 2px;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 2;
+      transition: box-shadow 0.15s;
+    }
+
+    .event-block:hover {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .event-blue {
+      background: #e8f0fe;
+      color: var(--g-blue);
+      border-left: 4px solid var(--g-blue);
+    }
+
+    .event-green {
+      background: #e6f4ea;
+      color: var(--g-green);
+      border-left: 4px solid var(--g-green);
+    }
+
+    .event-title {
+      font-weight: 700;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .event-meta-text {
+      font-size: 10px;
+      opacity: 0.8;
+    }
+
+    .sparkle-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: rgba(26,115,232,0.12);
+      color: var(--g-blue);
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-size: 9px;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .shared-badge {
+      background: var(--g-green-light);
+      color: var(--g-green);
+    }
+
+    /* ── GOOGLE CALENDAR POPUP BUBBLE ── */
+    .cal-popover {
+      position: absolute;
+      top: 140px;
+      left: 310px;
+      width: 440px;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      z-index: 20;
+      border: 1px solid var(--g-border);
+      animation: popIn 0.18s cubic-bezier(0, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .popover-header {
+      padding: 8px 12px 4px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .popover-icon-btn {
+      border: none;
+      background: transparent;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--g-text2);
+    }
+
+    .popover-icon-btn:hover {
+      background: var(--g-hover);
+    }
+
+    .popover-body {
+      padding: 0 20px 20px;
+    }
+
+    .popover-title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .popover-color-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      background: var(--g-blue);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .popover-title {
+      font-family: var(--font-title);
+      font-size: 20px;
+      color: var(--g-text);
+      font-weight: 400;
+    }
+
+    .popover-time-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--g-text2);
+      font-size: 13px;
+      margin-left: 26px;
+      margin-bottom: 8px;
+    }
+
+    .popover-guests-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      color: var(--g-text2);
+      font-size: 13px;
+      margin-left: 26px;
+      margin-bottom: 16px;
+    }
+
+    .popover-guest-avatars {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .guest-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* PREP BUBBLE NUDGE CARD */
+    .prep-nudge {
+      border: 1px solid rgba(26, 115, 232, 0.24);
+      background: linear-gradient(180deg, #f8fafd 0%, #edf4fe 100%);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      margin-left: 26px;
+      margin-top: 10px;
+    }
+
+    .prep-nudge-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .prep-nudge-title {
+      color: var(--g-blue);
+      font-weight: 700;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .prep-nudge-time {
+      font-size: 10px;
+      color: var(--g-blue);
+      font-weight: 500;
+      background: rgba(26,115,232,0.08);
+      padding: 1px 6px;
+      border-radius: 10px;
+    }
+
+    .prep-nudge-desc {
+      font-size: 12.5px;
+      color: #1a3e7c;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .prep-nudge-details {
+      font-size: 11.5px;
+      color: var(--g-text2);
+      margin-bottom: 12px;
+    }
+
+    .prep-nudge-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .nudge-btn {
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font);
+    }
+
+    .nudge-btn-ghost {
+      background: transparent;
+      color: var(--g-text2);
+    }
+    .nudge-btn-ghost:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    .nudge-btn-primary {
+      background: var(--g-blue);
+      color: #fff;
+    }
+    .nudge-btn-primary:hover {
+      background: var(--g-blue-hover);
+    }
+
+    /* ── WIZARD MODAL DIALOGS (STEP-BY-STEP) ── */
+    .wizard-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(32,33,36,0.4);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-lg);
+    }
+
+    .wizard-modal {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      width: 780px;
+      max-width: calc(100% - 32px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: popIn 0.2s cubic-bezier(0, 0, 0.2, 1);
+      max-height: 570px;
+      height: 90%;
+    }
+
+    .wizard-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--g-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wizard-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .wizard-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--g-text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-title);
+    }
+
+    .wizard-steps {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--g-bg);
+      border-bottom: 1px solid var(--g-border);
+      flex-shrink: 0;
+    }
+
+    .wizard-step {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--g-text3);
+    }
+
+    .wizard-step.active {
+      color: var(--g-blue);
+      font-weight: 700;
+    }
+
+    .wizard-step.done {
+      color: var(--g-green);
+      font-weight: 500;
+    }
+
+    .step-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .step-circle-done {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--g-green);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+    }
+
+    .step-line {
+      flex: 1;
+      height: 1px;
+      background: var(--g-border);
+      margin: 0 8px;
+    }
+
+    .wizard-split {
+      display: flex;
+      flex: 1;
+      height: auto;
+      min-height: 320px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .wizard-split-left {
+      width: 320px;
+      border-right: 1px solid var(--g-border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .wizard-split-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 20px;
+      background: var(--g-bg);
+    }
+
+    /* SOURCE ITEMS LIST */
+    .source-list-header {
+      padding: 12px 16px 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--g-text2);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .source-list-header-sec {
+      padding: 8px 16px 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--g-text3);
+      text-transform: uppercase;
+    }
+
+    .source-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      transition: background 0.1s;
+      border-bottom: 1px solid #f1f3f4;
+    }
+
+    .source-row:hover {
+      background: var(--g-hover);
+    }
+
+    .source-checkbox {
+      accent-color: var(--g-blue);
+      cursor: pointer;
+      width: 15px;
+      height: 15px;
+    }
+
+    .source-clickable-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      cursor: pointer;
+    }
+
+    .source-clickable-area:hover .source-title {
+      color: var(--g-blue);
+      text-decoration: underline;
+    }
+
+    .source-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .bg-mail { background: #ea4335; }
+    .bg-doc { background: #4285f4; }
+    .bg-hist { background: #fbbc05; }
+    .bg-notion { background: #000000; }
+    .bg-user { background: #009688; }
+
+    .source-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .source-title {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--g-text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.1s;
+    }
+
+    .source-meta {
+      font-size: 11px;
+      color: var(--g-text3);
+    }
+
+    .source-row.excluded .source-clickable-area {
+      opacity: 0.55;
+    }
+
+    .source-btn-delete {
+      border: none;
+      background: transparent;
+      color: var(--g-text3);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+
+    .source-row:hover .source-btn-delete {
+      opacity: 1;
+    }
+
+    .source-btn-delete:hover {
+      background: rgba(0,0,0,0.06);
+      color: var(--g-red);
+    }
+
+    .source-add-trigger {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      color: var(--g-blue);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .source-add-trigger:hover {
+      background: var(--g-hover);
+    }
+
+    .source-add-form {
+      padding: 8px 16px;
+      display: flex;
+      gap: 6px;
+      background: var(--g-bg);
+      border-bottom: 1px solid var(--g-border);
+    }
+
+    .source-add-input {
+      flex: 1;
+      border: 1px solid var(--g-border);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 12px;
+      outline: none;
+      font-family: var(--font);
+    }
+
+    .source-add-input:focus {
+      border-color: var(--g-blue);
+    }
+
+    .source-add-btn {
+      background: var(--g-blue);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* PREVIEW PANEL IN SOURCE REVIEW */
+    .preview-welcome {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--g-text2);
+      text-align: center;
+    }
+
+    .preview-welcome i {
+      font-size: 48px;
+      color: var(--g-border);
+      margin-bottom: 12px;
+    }
+
+    .preview-welcome h4 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--g-text);
+      margin-bottom: 6px;
+    }
+
+    .preview-welcome p {
+      font-size: 12.5px;
+      max-width: 280px;
+      line-height: 1.5;
+    }
+
+    /* Google aesthetics privacy notice */
+    .google-privacy-badge {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 14px;
+      background: #f1f3f4;
+      border-radius: 6px;
+      color: #5f6368;
+      font-size: 12px;
+      line-height: 1.5;
+      border: 1px solid #e0e0e0;
+      margin-top: 16px;
+      text-align: left;
+    }
+    
+    .google-privacy-badge i {
+      color: #5f6368;
+      font-size: 15px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* ── DOCUMENT PREVIEW POPUP OVERLAY ── */
+    .doc-viewer-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(32,33,36,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 250;
+      border-radius: var(--radius-lg);
+    }
+
+    .doc-viewer-modal {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      width: 520px;
+      max-width: 90%;
+      max-height: 480px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: popIn 0.18s cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    .doc-viewer-header {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--g-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--g-bg);
+    }
+
+    .doc-viewer-title-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--g-text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .doc-viewer-body {
+      padding: 20px;
+      overflow-y: auto;
+      flex: 1;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--g-text);
+    }
+
+    .email-view {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .email-meta-row {
+      border-bottom: 1px solid #f1f3f4;
+      padding-bottom: 6px;
+      font-size: 12px;
+      color: var(--g-text2);
+    }
+
+    .email-body-text {
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+
+    .doc-view {
+      white-space: pre-wrap;
+    }
+
+    /* ── LOADING ANIMATION SCREEN ── */
+    .loading-pane {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+      min-height: 350px;
+      background: #fff;
+    }
+
+    .google-spinner {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 24px;
+      animation: spin 2s linear infinite;
+    }
+
+    .spinner-dot {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot1 { background: #4285f4; top: 0; left: 18px; }
+    .dot2 { background: #ea4335; right: 0; top: 18px; }
+    .dot3 { background: #fbbc05; bottom: 0; left: 18px; }
+    .dot4 { background: #34a853; left: 0; top: 18px; }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-title {
+      font-family: var(--font-title);
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--g-text);
+    }
+
+    .loading-status {
+      font-size: 13px;
+      color: var(--g-blue);
+      margin-bottom: 20px;
+      font-weight: 500;
+      height: 20px;
+      text-align: center;
+    }
+
+    .loading-bar-wrap {
+      width: 240px;
+      height: 4px;
+      background: #e8f0fe;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .loading-bar-fill {
+      height: 100%;
+      background: var(--g-blue);
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ── BRIEFING CONTENT VIEW ── */
+    .briefing-body {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background: #fff;
+    }
+
+    .briefing-card-title {
+      font-family: var(--font-title);
+      font-size: 20px;
+      color: var(--g-text);
+      margin-bottom: 8px;
+    }
+
+    .briefing-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .briefing-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .tag-blue { background: var(--g-blue-light); color: var(--g-blue); }
+    .tag-green { background: var(--g-green-light); color: var(--g-green); }
+    .tag-amber { background: var(--g-amber-light); color: var(--g-amber); }
+    .tag-red { background: var(--g-red-light); color: var(--g-red); }
+
+    .briefing-section {
+      margin-bottom: 20px;
+    }
+
+    .briefing-section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--g-text);
+      margin-bottom: 8px;
+      border-bottom: 1px solid #f1f3f4;
+      padding-bottom: 4px;
+    }
+
+    .briefing-section-header i {
+      color: var(--g-text2);
+      font-size: 16px;
+    }
+
+    .briefing-section-content {
+      font-size: 13.5px;
+      color: var(--g-text);
+      line-height: 1.6;
+    }
+
+    .briefing-section-content ul {
+      padding-left: 18px;
+    }
+
+    .briefing-section-content li {
+      margin-bottom: 4px;
+    }
+
+    .briefing-alert {
+      background: var(--g-amber-light);
+      border-left: 4px solid var(--g-amber);
+      color: #7c5a00;
+      padding: 10px 14px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 8px;
+      font-size: 12.5px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .briefing-alert i {
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .briefing-alert-red {
+      background: var(--g-red-light);
+      border-left-color: var(--g-red);
+      color: #900;
+    }
+
+    .decisions-block {
+      background: var(--g-bg);
+      border-radius: var(--radius);
+      padding: 12px;
+      border: 1px solid var(--g-border);
+    }
+
+    .decision-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px solid #f1f3f4;
+    }
+
+    .decision-row:last-child {
+      border-bottom: none;
+    }
+
+    .decision-row i {
+      color: var(--g-green);
+      margin-top: 2px;
+    }
+
+    .doc-chips-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .doc-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: #fff;
+      border: 1px solid var(--g-border);
+      border-radius: var(--radius);
+      font-size: 12.5px;
+      text-decoration: none;
+      color: var(--g-text);
+      transition: background 0.15s;
+    }
+
+    .doc-chip:hover {
+      background: var(--g-hover);
+    }
+
+    .doc-chip i {
+      font-size: 15px;
+    }
+
+    /* Modal Footer Buttons */
+    .wizard-footer {
+      padding: 12px 20px;
+      border-top: 1px solid var(--g-border);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .wizard-footer-left-meta {
+      margin-right: auto;
+      font-size: 12px;
+      color: var(--g-text3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wizard-footer-left-meta i {
+      color: var(--g-green);
+    }
+
+    .btn {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.12s, border-color 0.12s;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border-color: var(--g-border);
+      color: var(--g-text2);
+    }
+
+    .btn-secondary:hover {
+      background: var(--g-hover);
+      color: var(--g-text);
+    }
+
+    .btn-outline {
+      background: #fff;
+      border-color: var(--g-blue);
+      color: var(--g-blue);
+    }
+
+    .btn-outline:hover {
+      background: var(--g-blue-light);
+    }
+
+    .btn-primary {
+      background: var(--g-blue);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--g-blue-hover);
+    }
+
+    /* Edit Overlay Text Area */
+    .edit-brief-overlay {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+      background: #fff;
+      height: 100%;
+    }
+
+    .edit-brief-textarea {
+      flex: 1;
+      width: 100%;
+      height: 380px;
+      border: 1px solid var(--g-border);
+      border-radius: var(--radius);
+      padding: 12px;
+      font-family: var(--font);
+      font-size: 13.5px;
+      line-height: 1.6;
+      resize: none;
+      outline: none;
+    }
+
+    .edit-brief-textarea:focus {
+      border-color: var(--g-blue);
+      box-shadow: 0 0 0 2px var(--g-blue-light);
+    }
+
+    /* ── SHARE PANEL (SCREEN 5) ── */
+    .share-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      background: #fff;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .share-options-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .share-option-card {
+      border: 1px solid var(--g-border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .share-option-card:hover {
+      background: var(--g-hover);
+    }
+
+    .share-option-card.selected {
+      border-color: var(--g-blue);
+      background: var(--g-blue-light);
+    }
+
+    .share-option-radio {
+      accent-color: var(--g-blue);
+    }
+
+    .share-icon-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f1f3f4;
+      color: var(--g-text2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .share-option-card.selected .share-icon-circle {
+      background: var(--g-blue);
+      color: #fff;
+    }
+
+    .share-option-info {
+      flex: 1;
+    }
+
+    .share-option-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--g-text);
+      margin-bottom: 2px;
+    }
+
+    .share-option-desc {
+      font-size: 12px;
+      color: var(--g-text2);
+    }
+
+    .share-recipient-list {
+      border-top: 1px solid var(--g-border);
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .share-recipient-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--g-text3);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    #recipients-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .share-recipient-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      background: var(--g-bg);
+      border: 1px solid var(--g-border);
+    }
+
+    .share-recipient-details {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .share-recipient-checkbox {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--g-blue);
+      cursor: pointer;
+    }
+
+    .share-add-outside-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+      border-top: 1px dashed var(--g-border);
+      padding-top: 12px;
+    }
+
+    .share-outside-input {
+      flex: 1;
+      border: 1px solid var(--g-border);
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .share-outside-input:focus {
+      border-color: var(--g-blue);
+    }
+
+    /* ── SETTINGS SCREEN (SCREEN 6) ── */
+    .settings-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 20px 24px;
+      background: #fff;
+      flex: 1;
+      overflow-y: auto;
+      max-height: 380px;
+    }
+
+    .settings-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--g-text3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid var(--g-border);
+      padding-bottom: 4px;
+    }
+
+    .settings-control-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+
+    .settings-control-info {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .settings-control-label {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--g-text);
+      margin-bottom: 2px;
+    }
+
+    .settings-control-desc {
+      font-size: 11.5px;
+      color: var(--g-text2);
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 38px;
+      height: 20px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #ccc;
+      transition: .2s;
+      border-radius: 20px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .2s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: var(--g-blue);
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(18px);
+    }
+
+    .settings-select {
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--g-border);
+      font-family: var(--font);
+      font-size: 13px;
+      color: var(--g-text);
+      background: #fff;
+      outline: none;
+      min-width: 100px;
+    }
+
+    .settings-select:focus {
+      border-color: var(--g-blue);
+    }
+
+    /* ── SUCCESS TOAST NOTIFICATION ── */
+    .success-toast {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #323232;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 4px;
+      box-shadow: var(--shadow-md);
+      z-index: 500;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transition: transform 0.3s, opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .success-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .success-toast i {
+      color: var(--g-green);
+    }
+
+    /* ── CASE STUDY PANEL (RIGHT) ── */
+    .case-study-panel {
+      background: var(--port-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--port-border);
+      padding: 24px;
+      color: var(--port-text);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      height: 680px;
+      overflow-y: auto;
+    }
+
+    .case-study-badge {
+      align-self: flex-start;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      color: #60a5fa;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .case-study-title {
+      font-family: var(--font-title);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .sidebar-tabs {
+      display: flex;
+      background: var(--port-bg);
+      border: 1px solid var(--port-border);
+      border-radius: 6px;
+      padding: 3px;
+    }
+
+    .sidebar-tab {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--port-text-muted);
+      padding: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .sidebar-tab.active {
+      background: var(--port-card);
+      color: #fff;
+    }
+
+    .case-study-step-container {
+      background: var(--port-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--port-border);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .step-indicator-badge {
+      display: inline-flex;
+      font-size: 10px;
+      font-weight: 700;
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      width: fit-content;
+      text-transform: uppercase;
+    }
+
+    .step-topic {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .step-notes {
+      font-size: 12.5px;
+      color: var(--port-text);
+      line-height: 1.6;
+    }
+
+    .step-notes ul {
+      padding-left: 16px;
+      margin-top: 8px;
+    }
+
+    .step-notes li {
+      margin-bottom: 6px;
+      color: var(--port-text-muted);
+    }
+
+    .step-notes strong {
+      color: #fff;
+    }
+
+    .ux-principle-tag {
+      display: inline-flex;
+      font-size: 9px;
+      font-weight: 700;
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-top: 4px;
+      margin-right: 4px;
+      text-transform: uppercase;
+    }
+
+    .flow-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .flow-node {
+      display: flex;
+      gap: 12px;
+      position: relative;
+    }
+
+    .flow-node:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 24px;
+      bottom: -18px;
+      width: 2px;
+      background: var(--port-border);
+    }
+
+    .flow-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--port-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--port-text-muted);
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .flow-node.active-flow .flow-dot {
+      background: var(--port-accent);
+      color: #fff;
+      box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    }
+
+    .flow-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .flow-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .flow-node.active-flow .flow-title {
+      color: #60a5fa;
+    }
+
+    .flow-desc {
+      font-size: 11px;
+      color: var(--port-text-muted);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="showcase-container">
+  
+  <!-- LEFT: Interactive Agent Showcase Grid -->
+  <div class="browser-frame">
+    <!-- Browser Toolbar -->
+    <div class="browser-toolbar">
+      <div class="window-controls">
+        <span class="window-dot dot-red"></span>
+        <span class="window-dot dot-yellow"></span>
+        <span class="window-dot dot-green"></span>
+      </div>
+      <div class="browser-address">
+        <i class="ti ti-lock"></i>
+        <span>https://calendar.google.com/u/0/r</span>
+      </div>
+      <div style="flex: 1;"></div>
+      <div class="browser-user">
+        <div class="cal-avatar">KU</div>
+      </div>
+    </div>
+
+    <!-- Calendar Layout Wrapper -->
+    <div class="cal-wrap">
+      
+      <!-- Calendar Title/Nav Header -->
+      <div class="cal-header">
+        <div class="cal-logo">
+          <svg class="cal-logo-icon" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="4" width="20" height="18" rx="2" stroke="#dadce0" stroke-width="1.5" fill="white"/>
+            <rect x="2" y="8" width="20" height="3" fill="#4285f4"/>
+            <path d="M8 4V7M16 4V7" stroke="#5f6368" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="12" y="19" text-anchor="middle" font-size="7" fill="#d93025" font-family="Google Sans,sans-serif" font-weight="700">6</text>
+          </svg>
+          <span class="cal-logo-text">Google <span>Calendar</span></span>
+        </div>
+        
+        <div class="cal-nav">
+          <button class="cal-nav-btn" onclick="resetCalendarDemo()">Today</button>
+          <button class="cal-nav-arrow"><i class="ti ti-chevron-left"></i></button>
+          <button class="cal-nav-arrow"><i class="ti ti-chevron-right"></i></button>
+          <span class="cal-date-title">June 2026</span>
+        </div>
+        
+        <div class="cal-header-right">
+          <button class="cal-nav-btn" style="display:flex;align-items:center;gap:6px"><i class="ti ti-calendar"></i> Week</button>
+          <button class="popover-icon-btn" onclick="openSettingsGlobal()" title="Prep agent settings"><i class="ti ti-settings" style="font-size:18px"></i></button>
+        </div>
+      </div>
+
+      <!-- Calendar Main Layout -->
+      <div class="cal-main">
+        <!-- Sidebar -->
+        <div class="cal-sidebar">
+          <button class="create-btn"><i class="ti ti-plus" style="font-size:18px;color:#ea4335"></i> Create</button>
+          
+          <div class="mini-cal">
+            <div class="mini-cal-header">
+              <span>June 2026</span>
+              <div style="display:flex;gap:4px">
+                <i class="ti ti-chevron-left" style="cursor:pointer"></i>
+                <i class="ti ti-chevron-right" style="cursor:pointer"></i>
+              </div>
+            </div>
+            <div class="mini-cal-grid">
+              <div class="mini-day-name">M</div><div class="mini-day-name">T</div><div class="mini-day-name">W</div><div class="mini-day-name">T</div><div class="mini-day-name">F</div><div class="mini-day-name">S</div><div class="mini-day-name">S</div>
+              <div class="mini-day">1</div><div class="mini-day">2</div><div class="mini-day">3</div><div class="mini-day">4</div><div class="mini-day active">5</div><div class="mini-day">6</div><div class="mini-day">7</div>
+              <div class="mini-day">8</div><div class="mini-day">9</div><div class="mini-day">10</div><div class="mini-day">11</div><div class="mini-day">12</div><div class="mini-day">13</div><div class="mini-day">14</div>
+            </div>
+          </div>
+
+          <div class="my-calendars">
+            <span>My Calendars</span>
+            <div class="cal-checkbox-row">
+              <input type="checkbox" checked id="cal-main-check">
+              <label for="cal-main-check">Kuocheng Lin</label>
+            </div>
+            <div class="cal-checkbox-row">
+              <input type="checkbox" checked id="cal-prep-check">
+              <label for="cal-prep-check" style="display:flex;align-items:center;gap:4px">Prep Assistant <i class="ti ti-sparkles" style="color:var(--g-blue);font-size:11px"></i></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weekly Grid -->
+        <div class="cal-content">
+          <div class="cal-grid-header">
+            <div></div>
+            <div class="cal-header-cell">MON<br>1</div>
+            <div class="cal-header-cell">TUE<br>2</div>
+            <div class="cal-header-cell">WED<br>3</div>
+            <div class="cal-header-cell">THU<br>4</div>
+            <div class="cal-header-cell today">FRI<br><div class="today-num-badge">5</div></div>
+            <div class="cal-header-cell">SAT<br>6</div>
+            <div class="cal-header-cell">SUN<br>7</div>
+          </div>
+
+          <div class="cal-grid-body">
+            <!-- 8 AM -->
+            <div class="time-label">8 AM</div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            
+            <!-- 9 AM -->
+            <div class="time-label">9 AM</div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <!-- Friday 9AM Event -->
+            <div class="grid-cell" style="position:relative;">
+              <div class="event-block event-blue" onclick="openPopover()">
+                <div class="event-title">Q2 Stakeholder Review</div>
+                <div class="event-meta-text">9:00 - 10:00 AM</div>
+                <div class="sparkle-badge" id="meeting-badge"><i class="ti ti-sparkles" style="font-size:8px"></i> Prep ready</div>
+              </div>
+            </div>
+            <div class="grid-cell"></div><div class="grid-cell"></div>
+
+            <!-- 10 AM -->
+            <div class="time-label">10 AM</div>
+            <div class="grid-cell"></div><div class="grid-cell"></div>
+            <!-- Wednesday 10:30AM Event -->
+            <div class="grid-cell" style="position:relative">
+              <div class="event-block event-green" style="height:40px;top:20px">
+                <div class="event-title">Design Sync</div>
+                <div class="event-meta-text">10:30 - 11:30 AM</div>
+              </div>
+            </div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+
+            <!-- 11 AM -->
+            <div class="time-label">11 AM</div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── GOOGLE CALENDAR EVENT POPOVER ── -->
+      <div class="cal-popover" id="event-popover" style="display:none">
+        <div class="popover-header">
+          <button class="popover-icon-btn" onclick="openSettingsFromPopover()" title="Prep settings"><i class="ti ti-settings"></i></button>
+          <button class="popover-icon-btn" onclick="closePopover()"><i class="ti ti-x"></i></button>
+        </div>
+        
+        <div class="popover-body">
+          <div class="popover-title-row">
+            <span class="popover-color-dot"></span>
+            <div>
+              <h2 class="popover-title">Q2 Stakeholder Review</h2>
+              <div style="font-size:12px;color:var(--g-text2);margin-top:2px">Friday, June 5 · 9:00 – 10:00 AM</div>
+            </div>
+          </div>
+          
+          <div class="popover-time-row">
+            <i class="ti ti-video"></i>
+            <div>
+              <button class="btn btn-primary" style="padding:6px 16px;font-size:13px;border-radius:4px">Join with Google Meet</button>
+            </div>
+          </div>
+          
+          <div class="popover-guests-row">
+            <i class="ti ti-users"></i>
+            <div>
+              <div style="font-weight:500">3 guests</div>
+              <div class="popover-guest-avatars">
+                <div class="guest-avatar" style="background:#4285f4">SL</div>
+                <div class="guest-avatar" style="background:#ea4335">JK</div>
+                <div class="guest-avatar" style="background:#0f9d58">WC</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Prep Nudge Card -->
+          <div class="prep-nudge" id="nudge-element">
+            <div id="nudge-unsent-state">
+              <div class="prep-nudge-header">
+                <span class="prep-nudge-title"><i class="ti ti-sparkles"></i> Prep — 10 min before</span>
+                <span class="prep-nudge-time" id="nudge-time-label">10 min before</span>
+              </div>
+              <div class="prep-nudge-desc">Briefing ready for your 9:00 AM meeting.</div>
+              <div class="prep-nudge-details" id="nudge-stats-label">3 emails · 2 docs · 1 past meeting found</div>
+              <div class="prep-nudge-actions">
+                <button class="nudge-btn nudge-btn-ghost" onclick="closePopover()">Dismiss</button>
+                <button class="nudge-btn nudge-btn-primary" onclick="goToStep('sources_review')">Review sources</button>
+              </div>
+            </div>
+            
+            <div id="nudge-sent-state" style="display:none">
+              <div class="prep-nudge-header">
+                <span class="prep-nudge-title" style="color:var(--g-green)"><i class="ti ti-circle-check"></i> Prep — Shared with team</span>
+                <span class="prep-nudge-time" style="background:var(--g-green-light);color:var(--g-green)">Shared</span>
+              </div>
+              <div class="prep-nudge-desc" style="color:#1e4620">The synthesized brief has been sent to attendees.</div>
+              <div class="prep-nudge-details">Any guest can access this dashboard. Data is encrypted and securely stored.</div>
+              <div class="prep-nudge-actions">
+                <button class="nudge-btn nudge-btn-ghost" onclick="goToStep('sources_review')">Edit Sources</button>
+                <button class="nudge-btn nudge-btn-primary" style="background:var(--g-green)" onclick="directToBriefing()">View brief</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── WIZARD MODAL WIDE OVERLAY ── -->
+      <div class="wizard-overlay" id="wizard-overlay" style="display:none">
+        
+        <!-- Modal: Step 1 (Source Review Panel) -->
+        <div class="wizard-modal" id="modal-step-sources" style="display:none">
+          <div class="wizard-header">
+            <div class="wizard-header-left">
+              <div class="wizard-title">
+                <i class="ti ti-sparkles" style="color:var(--g-blue)"></i>
+                <span>Generate meeting brief with Prep</span>
+                <i class="ti ti-info-circle" style="color:var(--g-text3);cursor:pointer;font-size:16px;margin-left:4px" onclick="toggleHeaderInfo()" title="Learn more about Prep"></i>
+              </div>
+              <div class="header-info-desc" id="header-info-desc" style="display:none;font-size:12px;color:var(--g-text2);margin-top:4px;max-width:550px">
+                Prep reads shared documents, email threads, and calendar history related to your attendees. No data is stored outside the meeting context.
+              </div>
+            </div>
+            <button class="popover-icon-btn" onclick="closeWizard()"><i class="ti ti-x"></i></button>
+          </div>
+          
+          <div class="wizard-steps">
+            <div class="wizard-step active"><span class="step-circle">1</span> Review sources</div>
+            <div class="step-line"></div>
+            <div class="wizard-step"><span class="step-circle">2</span> Review Brief</div>
+            <div class="step-line"></div>
+            <div class="wizard-step"><span class="step-circle">3</span> Share brief</div>
+          </div>
+
+          <div class="wizard-split">
+            <!-- Left Panel: Source Checklist -->
+            <div class="wizard-split-left">
+              <div class="source-list-header">Sources Considered</div>
+              
+              <!-- Emails Section -->
+              <div class="source-list-header-sec">Emails</div>
+              <div id="emails-container">
+                <div class="source-row" id="s-mail1">
+                  <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-mail1')">
+                  <div class="source-clickable-area" onclick="openDocPreview('s-mail1')">
+                    <div class="source-icon bg-mail"><i class="ti ti-mail"></i></div>
+                    <div class="source-details">
+                      <div class="source-title">Q2 Roadmap thread</div>
+                      <div class="source-meta">Sara Lin, James Kim · May 28</div>
+                    </div>
+                  </div>
+                  <button class="source-btn-delete" onclick="deleteSource(event, 's-mail1')"><i class="ti ti-trash"></i></button>
+                </div>
+                <div class="source-row" id="s-mail2">
+                  <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-mail2')">
+                  <div class="source-clickable-area" onclick="openDocPreview('s-mail2')">
+                    <div class="source-icon bg-mail"><i class="ti ti-mail"></i></div>
+                    <div class="source-details">
+                      <div class="source-title">Stakeholder update</div>
+                      <div class="source-meta">James Kim · Jun 1</div>
+                    </div>
+                  </div>
+                  <button class="source-btn-delete" onclick="deleteSource(event, 's-mail2')"><i class="ti ti-trash"></i></button>
+                </div>
+                <div class="source-row" id="s-mail3">
+                  <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-mail3')">
+                  <div class="source-clickable-area" onclick="openDocPreview('s-mail3')">
+                    <div class="source-icon bg-mail"><i class="ti ti-mail"></i></div>
+                    <div class="source-details">
+                      <div class="source-title">Budget approval thread</div>
+                      <div class="source-meta">Sara Lin · Jun 3</div>
+                    </div>
+                  </div>
+                  <button class="source-btn-delete" onclick="deleteSource(event, 's-mail3')"><i class="ti ti-trash"></i></button>
+                </div>
+              </div>
+              <div id="add-mail-form" class="source-add-form" style="display:none">
+                <input type="text" id="add-mail-input" class="source-add-input" placeholder="Paste email subject or thread link">
+                <button class="source-add-btn" onclick="submitAddSource('mail')">Add</button>
+              </div>
+              <div class="source-add-trigger" onclick="showAddForm('add-mail-form', 'add-mail-input')">
+                <i class="ti ti-plus"></i> Add email thread
+              </div>
+
+              <!-- Documents Section -->
+              <div class="source-list-header-sec" style="margin-top:8px">Documents</div>
+              <div id="docs-container">
+                <div class="source-row" id="s-doc1">
+                  <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-doc1')">
+                  <div class="source-clickable-area" onclick="openDocPreview('s-doc1')">
+                    <div class="source-icon bg-doc"><i class="ti ti-file-text"></i></div>
+                    <div class="source-details">
+                      <div class="source-title">Q2 Roadmap v3.docx</div>
+                      <div class="source-meta">Edited Jun 2 by Sara Lin</div>
+                    </div>
+                  </div>
+                  <button class="source-btn-delete" onclick="deleteSource(event, 's-doc1')"><i class="ti ti-trash"></i></button>
+                </div>
+                <div class="source-row" id="s-doc2">
+                  <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-doc2')">
+                  <div class="source-clickable-area" onclick="openDocPreview('s-doc2')">
+                    <div class="source-icon bg-notion"><span style="font-size:10px;font-weight:700">N</span></div>
+                    <div class="source-details">
+                      <div class="source-title">Sprint 14 notes</div>
+                      <div class="source-meta">Edited Jun 4 by James Kim</div>
+                    </div>
+                  </div>
+                  <button class="source-btn-delete" onclick="deleteSource(event, 's-doc2')"><i class="ti ti-trash"></i></button>
+                </div>
+              </div>
+              <div id="add-doc-form" class="source-add-form" style="display:none">
+                <input type="text" id="add-doc-input" class="source-add-input" placeholder="Paste Drive link or file name">
+                <button class="source-add-btn" onclick="submitAddSource('doc')">Add</button>
+              </div>
+              <div class="source-add-trigger" onclick="showAddForm('add-doc-form', 'add-doc-input')">
+                <i class="ti ti-plus"></i> Add document or URL
+              </div>
+
+              <!-- Meeting History Section -->
+              <div class="source-list-header-sec" style="margin-top:8px">Meeting History</div>
+              <div id="history-container">
+                <div class="source-row" id="s-hist1">
+                  <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-hist1')">
+                  <div class="source-clickable-area" onclick="openDocPreview('s-hist1')">
+                    <div class="source-icon bg-hist"><i class="ti ti-calendar"></i></div>
+                    <div class="source-details">
+                      <div class="source-title">Q1 Stakeholder Review</div>
+                      <div class="source-meta">Same attendees · Apr 15</div>
+                    </div>
+                  </div>
+                  <button class="source-btn-delete" onclick="deleteSource(event, 's-hist1')"><i class="ti ti-trash"></i></button>
+                </div>
+              </div>
+              <!-- Persistent triggers for empty history section -->
+              <div id="add-hist-form" class="source-add-form" style="display:none">
+                <input type="text" id="add-hist-input" class="source-add-input" placeholder="Search calendar history or paste event URL">
+                <button class="source-add-btn" onclick="submitAddSource('hist')">Add</button>
+              </div>
+              <div class="source-add-trigger" onclick="showAddForm('add-hist-form', 'add-hist-input')">
+                <i class="ti ti-plus"></i> Add past meeting reference
+              </div>
+
+              <!-- Custom User Notes Section -->
+              <div class="source-list-header-sec" style="margin-top:8px">Custom Notes</div>
+              <div id="notes-container">
+                <!-- Custom notes dynamically added -->
+              </div>
+              <div id="add-text-form" class="source-add-form" style="display:none; flex-direction:column; gap:6px;">
+                <textarea id="add-text-input" class="source-add-input" style="height:60px;resize:none" placeholder="Type or paste custom notes or context here..."></textarea>
+                <button class="source-add-btn" style="align-self:flex-end" onclick="submitAddSource('text')">Add note</button>
+              </div>
+              <div class="source-add-trigger" onclick="showAddForm('add-text-form', 'add-text-input')">
+                <i class="ti ti-plus"></i> Add custom text note
+              </div>
+            </div>
+
+            <!-- Right Panel: Preview Pane -->
+            <div class="wizard-split-right" style="justify-content:center;align-items:center;">
+              <div class="preview-welcome">
+                <i class="ti ti-database-search" style="color:var(--g-blue)"></i>
+                <h4>Confirm meeting context</h4>
+                
+                <!-- Simplified description -->
+                <p>Verify sources below. Select items to include in the briefing, or click to preview them.</p>
+                
+                <!-- Google privacy badge -->
+                <div class="google-privacy-badge">
+                  <i class="ti ti-lock"></i>
+                  <span>Only event attendees can access this briefing. Source data is encrypted and securely stored for historical baseline context.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-footer">
+            <button class="btn btn-secondary" onclick="closeWizard()">Cancel</button>
+            <button class="btn btn-primary" onclick="startGeneration()">Confirm & generate brief</button>
+          </div>
+        </div>
+
+        <!-- Modal: Loading Sequence -->
+        <div class="wizard-modal" id="modal-step-generating" style="display:none">
+          <div class="wizard-header">
+            <div class="wizard-title">
+              <i class="ti ti-sparkles" style="color:var(--g-blue)"></i>
+              Prep is synthesizing briefing
+            </div>
+            <button class="popover-icon-btn" onclick="closeWizard()"><i class="ti ti-x"></i></button>
+          </div>
+          
+          <div class="wizard-steps">
+            <div class="wizard-step done"><span class="step-circle-done"><i class="ti ti-check"></i></span> Review sources</div>
+            <div class="step-line"></div>
+            <div class="wizard-step active"><span class="step-circle">2</span> Review Brief</div>
+            <div class="step-line"></div>
+            <div class="wizard-step"><span class="step-circle">3</span> Share brief</div>
+          </div>
+
+          <div class="loading-pane">
+            <div class="google-spinner">
+              <span class="spinner-dot dot1"></span>
+              <span class="spinner-dot dot2"></span>
+              <span class="spinner-dot dot3"></span>
+              <span class="spinner-dot dot4"></span>
+            </div>
+            <h3 class="loading-title">Synthesizing briefing context</h3>
+            <p class="loading-status" id="generation-status-text">Connecting to Google Workspace...</p>
+            <div class="loading-bar-wrap">
+              <div class="loading-bar-fill" id="generation-progress-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal: Step 2 (View/Edit Briefing Card) -->
+        <div class="wizard-modal" id="modal-step-briefing" style="display:none">
+          
+          <div class="wizard-header" id="briefing-view-header">
+            <div class="wizard-title">
+              <i class="ti ti-notes" style="color:var(--g-blue)"></i>
+              Meeting Brief
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-secondary" style="padding:6px 12px;font-size:12px" onclick="toggleEditBriefMode(true)"><i class="ti ti-edit"></i> Edit brief</button>
+              <button class="popover-icon-btn" onclick="closeWizard()"><i class="ti ti-x"></i></button>
+            </div>
+          </div>
+
+          <div class="wizard-header" id="briefing-edit-header" style="display:none">
+            <div class="wizard-title">
+              <i class="ti ti-edit" style="color:var(--g-blue)"></i>
+              Edit Meeting Brief
+            </div>
+            <button class="popover-icon-btn" onclick="toggleEditBriefMode(false)"><i class="ti ti-x"></i></button>
+          </div>
+
+          <div class="wizard-steps" id="briefing-steps-bar">
+            <div class="wizard-step done"><span class="step-circle-done"><i class="ti ti-check"></i></span> Review sources</div>
+            <div class="step-line"></div>
+            <div class="wizard-step active"><span class="step-circle">2</span> Review Brief</div>
+            <div class="step-line"></div>
+            <div class="wizard-step"><span class="step-circle">3</span> Share brief</div>
+          </div>
+
+          <!-- Edit Overlay Textarea -->
+          <div class="edit-brief-overlay" id="briefing-edit-overlay">
+            <textarea class="edit-brief-textarea" id="brief-textarea-editor"></textarea>
+            <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:8px">
+              <button class="btn btn-secondary" onclick="toggleEditBriefMode(false)">Discard</button>
+              <button class="btn btn-primary" onclick="saveBriefChanges()">Save changes</button>
+            </div>
+          </div>
+
+          <!-- Brief Split Screen -->
+          <div class="wizard-split" id="briefing-split-layout">
+            <div class="wizard-split-left" style="background:#fafafa">
+              <div class="source-list-header">Sources Consulted</div>
+              <div id="sources-used-chips-container" style="display:flex;flex-direction:column;gap:2px">
+                <!-- Generated dynamically -->
+              </div>
+            </div>
+
+            <div class="wizard-split-right" style="background:#fff">
+              <div class="briefing-body" id="brief-rendered-body" style="padding:0">
+                <div class="briefing-card-title">Q2 Stakeholder Review Briefing</div>
+                <div class="briefing-tags">
+                  <span class="briefing-tag tag-blue">Roadmap</span>
+                  <span class="briefing-tag tag-green">Q3 Budget</span>
+                  <span class="briefing-tag tag-amber">Sprint 14</span>
+                  <span class="briefing-tag tag-red">Heads-up</span>
+                </div>
+
+                <div class="briefing-section">
+                  <div class="briefing-section-header"><i class="ti ti-list-check"></i> Topics of Discussion</div>
+                  <div class="briefing-section-content">
+                    <ul>
+                      <li>Q2 delivery progress against initial roadmap commitments.</li>
+                      <li>Review and sign-off for the Q3 project budget.</li>
+                      <li>Scoping details for mobile enhancements in Q3.</li>
+                      <li>Defining leadership and ownership of the system migration.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="briefing-section">
+                  <div class="briefing-section-header"><i class="ti ti-align-left"></i> Executive Summary</div>
+                  <div class="briefing-section-content">
+                    Review of target progress in Q2. Critical outcome is signing off on Q3 staffing and resource budgets. The Q3 budget ceiling has been lowered by 12% since the spring forecast—confirm details with Wei Chen before alignment.
+                  </div>
+                </div>
+
+                <div class="briefing-section">
+                  <div class="briefing-section-header"><i class="ti ti-alert-triangle" style="color:var(--g-amber)"></i> Heads-up</div>
+                  <div class="briefing-alert briefing-alert-red">
+                    <i class="ti ti-wallet"></i>
+                    <div><strong>Budget Drop:</strong> Q3 budget ceiling has dropped 12% compared to the April target review. Make sure to cross-check slides with Wei Chen before presenting.</div>
+                  </div>
+                  <div class="briefing-alert">
+                    <i class="ti ti-device-mobile"></i>
+                    <div><strong>Mobile Delay:</strong> Mobile functionality was deferred from Q2 to Q3 in the April stakeholder review. Verify if this remains the priority.</div>
+                  </div>
+                </div>
+
+                <div class="briefing-section">
+                  <div class="briefing-section-header"><i class="ti ti-help-circle"></i> Potential questions</div>
+                  <div class="briefing-section-content">
+                    <ul>
+                      <li>Is the mobile roadmap still scheduled for Q3 completion?</li>
+                      <li>Who takes formal ownership of the database migration project?</li>
+                      <li>Does the 12% budget contraction require reprioritizing developer resources?</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="briefing-section">
+                  <div class="briefing-section-header"><i class="ti ti-calendar-stats"></i> Points Discussed Previously <span style="font-weight:400;color:var(--g-text3);font-size:11px">— Q1 Review (Apr 15)</span></div>
+                  <div class="briefing-section-content">
+                    <div class="decisions-block">
+                      <div class="decision-row">
+                        <i class="ti ti-check"></i>
+                        <span>Mobile scope deferred to Q3 by unanimous agreement.</span>
+                      </div>
+                      <div class="decision-row">
+                        <i class="ti ti-check"></i>
+                        <span>Wei Chen nominated to lead migration mapping (confirmed May 3).</span>
+                      </div>
+                      <div class="decision-row">
+                        <i class="ti ti-check"></i>
+                        <span>Q2 roadmap velocity targets finalized (+18%).</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="briefing-section">
+                  <div class="briefing-section-header"><i class="ti ti-paperclip"></i> Documents Referenced</div>
+                  <div class="doc-chips-container">
+                    <a href="#" class="doc-chip" onclick="return false">
+                      <i class="ti ti-file-text" style="color:var(--g-blue)"></i>
+                      <span style="flex:1">Q2 Roadmap v3.docx</span>
+                      <span style="color:var(--g-text3);font-size:11px">Edited Jun 2 · Sara Lin</span>
+                    </a>
+                    <a href="#" class="doc-chip" onclick="return false">
+                      <span style="display:inline-block;width:16px;height:16px;background:#000;color:#fff;border-radius:2px;text-align:center;font-size:9px;font-weight:bold;line-height:16px;margin-right:2px">N</span>
+                      <span style="flex:1">Sprint 14 notes</span>
+                      <span style="color:var(--g-text3);font-size:11px">Edited Jun 4 · James Kim</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-footer" id="briefing-footer-buttons">
+            <div class="wizard-footer-left-meta">
+              <i class="ti ti-lock"></i> Workspace secure · Context data is encrypted & securely stored.
+            </div>
+            <button class="btn btn-secondary" onclick="goToStep('sources_review')">← Review sources</button>
+            <button class="btn btn-primary" onclick="goToStep('share')"><i class="ti ti-send"></i> Share with team</button>
+          </div>
+        </div>
+
+        <!-- Modal: Step 3 (Share Screen) -->
+        <div class="wizard-modal" id="modal-step-share" style="display:none">
+          <div class="wizard-header">
+            <div class="wizard-title">
+              <i class="ti ti-share" style="color:var(--g-blue)"></i>
+              Share briefing
+            </div>
+            <button class="popover-icon-btn" onclick="closeWizard()"><i class="ti ti-x"></i></button>
+          </div>
+          
+          <div class="wizard-steps">
+            <div class="wizard-step done"><span class="step-circle-done"><i class="ti ti-check"></i></span> Review sources</div>
+            <div class="step-line"></div>
+            <div class="wizard-step done"><span class="step-circle-done"><i class="ti ti-check"></i></span> Review Brief</div>
+            <div class="step-line"></div>
+            <div class="wizard-step active"><span class="step-circle">3</span> Share brief</div>
+          </div>
+
+          <div class="share-container">
+            <div style="font-size:13.5px;color:var(--g-text2)">Select how you'd like to share the generated brief:</div>
+            
+            <div class="share-options-group">
+              <div class="share-option-card selected" id="share-opt-mail" onclick="selectShareOption('mail')">
+                <input type="radio" checked name="share-method" class="share-option-radio" onclick="event.stopPropagation()">
+                <div class="share-icon-circle"><i class="ti ti-mail-forward"></i></div>
+                <div class="share-option-info">
+                  <div class="share-option-title">Email selected attendees</div>
+                  <div class="share-option-desc">Send individual briefing emails to the selected team members.</div>
+                </div>
+              </div>
+
+              <div class="share-option-card" id="share-opt-link" onclick="selectShareOption('link')">
+                <input type="radio" name="share-method" class="share-option-radio" onclick="event.stopPropagation()">
+                <div class="share-icon-circle"><i class="ti ti-link"></i></div>
+                <div class="share-option-info">
+                  <div class="share-option-title">Copy invite briefing link</div>
+                  <div class="share-option-desc">Generates a secure shared link. Anyone on the invite list can view.</div>
+                </div>
+              </div>
+
+              <div class="share-option-card" id="share-opt-all" onclick="selectShareOption('all')">
+                <input type="radio" name="share-method" class="share-option-radio" onclick="event.stopPropagation()">
+                <div class="share-icon-circle"><i class="ti ti-users"></i></div>
+                <div class="share-option-info">
+                  <div class="share-option-title">Send to all attendees</div>
+                  <div class="share-option-desc">Automatically emails the full briefing directly to all 3 participants.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recipient Checklist -->
+            <div class="share-recipient-list" id="recipient-checklist-panel">
+              <div class="share-recipient-title">Send briefing to:</div>
+              
+              <div id="recipients-list-container">
+                <div class="share-recipient-row">
+                  <div class="share-recipient-details">
+                    <div class="guest-avatar" style="background:#4285f4;width:20px;height:20px;font-size:9px">SL</div>
+                    <span>Sara Lin <span style="font-size:11px;color:var(--g-text3)">(Organizer)</span></span>
+                  </div>
+                  <input type="checkbox" checked class="share-recipient-checkbox" id="share-rec-sara" onchange="toggleRecipient('sara')">
+                </div>
+
+                <div class="share-recipient-row">
+                  <div class="share-recipient-details">
+                    <div class="guest-avatar" style="background:#ea4335;width:20px;height:20px;font-size:9px">JK</div>
+                    <span>James Kim</span>
+                  </div>
+                  <input type="checkbox" checked class="share-recipient-checkbox" id="share-rec-james" onchange="toggleRecipient('james')">
+                </div>
+
+                <div class="share-recipient-row">
+                  <div class="share-recipient-details">
+                    <div class="guest-avatar" style="background:#0f9d58;width:20px;height:20px;font-size:9px">WC</div>
+                    <span>Wei Chen</span>
+                  </div>
+                  <input type="checkbox" checked class="share-recipient-checkbox" id="share-rec-wei" onchange="toggleRecipient('wei')">
+                </div>
+              </div>
+
+              <!-- Outside invitation list, correctly formatted underneath -->
+              <div class="share-add-outside-row">
+                <input type="text" id="share-outside-input" class="share-outside-input" placeholder="Add guest outside invite list (email)">
+                <button class="btn btn-secondary" onclick="addOutsideRecipient()">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-footer">
+            <button class="btn btn-secondary" onclick="goToStep('briefing')">← Back to brief</button>
+            <button class="btn btn-primary" onclick="sendBriefing()"><i class="ti ti-check"></i> Send briefing</button>
+          </div>
+        </div>
+
+        <!-- Modal: Settings Screen (Screen 6) -->
+        <div class="wizard-modal" id="modal-step-settings" style="display:none">
+          <div class="wizard-header">
+            <div class="wizard-title">
+              <i class="ti ti-settings" style="color:var(--g-blue)"></i>
+              Prep settings
+            </div>
+            <button class="popover-icon-btn" onclick="closeSettings()"><i class="ti ti-x"></i></button>
+          </div>
+
+          <div class="settings-container">
+            <div class="settings-section-title">General Settings</div>
+            
+            <div class="settings-control-row">
+              <div class="settings-control-info">
+                <div class="settings-control-label">Agent enabled</div>
+                <div class="settings-control-desc">Allow Prep to run in background and suggest pre-meeting briefings.</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked id="set-agent-enabled">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="settings-control-row">
+              <div class="settings-control-info">
+                <div class="settings-control-label">Show source review panel</div>
+                <div class="settings-control-desc">Always review list of sources before briefing is compiled.</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked id="set-show-sources">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="settings-section-title">Nudge Trigger Parameters</div>
+
+            <div class="settings-control-row">
+              <div class="settings-control-info">
+                <div class="settings-control-label">Notify before meeting</div>
+                <div class="settings-control-desc">Time when the Prep briefing badge surfaces.</div>
+              </div>
+              <select class="settings-select" id="set-notify-time" onchange="updateNudgeSettingsUI()">
+                <option value="5 min">5 min before</option>
+                <option value="10 min" selected>10 min before</option>
+                <option value="15 min">15 min before</option>
+                <option value="20 min">20 min before</option>
+              </select>
+            </div>
+
+            <div class="settings-control-row">
+              <div class="settings-control-info">
+                <div class="settings-control-label">Minimum meeting duration</div>
+                <div class="settings-control-desc">Ignore quick standups or syncs.</div>
+              </div>
+              <select class="settings-select">
+                <option value="15">15 minutes</option>
+                <option value="30" selected>30 minutes</option>
+                <option value="60">60 minutes</option>
+              </select>
+            </div>
+
+            <div class="settings-section-title">Data Ingestion Authorizations</div>
+
+            <div class="settings-control-row">
+              <div class="settings-control-info">
+                <div class="settings-control-label">Google Mail</div>
+                <div class="settings-control-desc">Analyze threads with invite participants.</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked id="set-ingest-mail" onchange="toggleIngestionSource('mail')">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="settings-control-row">
+              <div class="settings-control-info">
+                <div class="settings-control-label">Google Drive</div>
+                <div class="settings-control-desc">Read calendar attachments and related docs.</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked id="set-ingest-drive" onchange="toggleIngestionSource('drive')">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="settings-control-row">
+              <div class="settings-control-info">
+                <div class="settings-control-label">Meeting History</div>
+                <div class="settings-control-desc">Compare targets to previous notes with same team.</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked id="set-ingest-history" onchange="toggleIngestionSource('history')">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="wizard-footer">
+            <button class="btn btn-secondary" onclick="closeSettings()">Cancel</button>
+            <button class="btn btn-primary" onclick="saveSettings()">Save preferences</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DOCUMENT PREVIEW MODAL OVERLAY -->
+      <div class="doc-viewer-overlay" id="doc-viewer" style="display:none">
+        <div class="doc-viewer-modal">
+          <div class="doc-viewer-header">
+            <span class="doc-viewer-title-text" id="doc-viewer-title"><i class="ti ti-file-text"></i> Document Preview</span>
+            <button class="popover-icon-btn" onclick="closeDocViewer()"><i class="ti ti-x"></i></button>
+          </div>
+          <div class="doc-viewer-body" id="doc-viewer-content">
+            <!-- content dynamically injected -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SUCCESS TOAST NOTIFICATION -->
+      <div class="success-toast" id="success-toast">
+        <i class="ti ti-circle-check"></i>
+        <span id="toast-message-text">Briefing shared successfully!</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT: Dynamic Case Study Sidebar Panel -->
+  <div class="case-study-panel">
+    <div class="case-study-badge">Agent UX Case Study</div>
+    <h1 class="case-study-title" id="sidebar-main-title">Prep Meeting Assistant</h1>
+    
+    <!-- Sidebar navigation tabs -->
+    <div class="sidebar-tabs">
+      <button class="sidebar-tab active" id="tab-btn-principles" onclick="switchSidebarTab('principles')">UX Principles</button>
+      <button class="sidebar-tab" id="tab-btn-flow" onclick="switchSidebarTab('flow')">User Flow</button>
+    </div>
+
+    <!-- TAB 1: Agent UX principles details -->
+    <div id="sidebar-tab-principles" style="display:flex;flex-direction:column;gap:12px;flex:1">
+      <p class="case-study-desc" style="font-size:12.5px;color:var(--port-text-muted);font-style:italic">
+        Prep addresses meeting preparation anxiety: workers struggle to walk into meetings confidently because critical context is buried across siloed tools they don't have time to search before their next calendar event starts.
+      </p>
+      
+      <div style="background:var(--port-card);padding:14px;border-radius:6px;border:1px solid var(--port-border)">
+        <h4 style="font-size:11px;color:#60a5fa;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">Project Goals</h4>
+        <ul style="font-size:11.5px;color:var(--port-text);padding-left:14px;display:flex;flex-direction:column;gap:8px;line-height:1.5">
+          <li><strong>Make prep effortless & fast:</strong> Users should feel fully prepared in under 2 minutes—without opening a single additional tool.</li>
+          <li><strong>Surface missed context:</strong> Proactively flag changes, new attendees, and recent decisions before they become live embarrassments.</li>
+          <li><strong>Intentional sharing:</strong> Context sharing remains an explicit choice—never happening automatically or without user awareness.</li>
+          <li><strong>Stay invisible until needed:</strong> Stay out of the way and surface only when genuinely useful, earning trust by respecting attention.</li>
+        </ul>
+      </div>
+
+      <div class="case-study-step-container" id="case-study-details" style="padding:12px">
+        <!-- populated dynamically via javascript -->
+      </div>
+    </div>
+
+    <!-- TAB 2: User Flow Diagram -->
+    <div id="sidebar-tab-flow" style="display:none;flex-direction:column;gap:16px;flex:1">
+      <p class="case-study-desc">
+        Sequential execution workflow illustrating user control boundaries.
+      </p>
+      
+      <div class="case-study-step-container">
+        <div class="flow-timeline">
+          
+          <div class="flow-node active-flow" id="flow-step-1">
+            <div class="flow-dot">1</div>
+            <div class="flow-content">
+              <span class="flow-title">Agent Detects Event</span>
+              <span class="flow-desc">Detects meeting block and indexes relevant files silently.</span>
+            </div>
+          </div>
+          
+          <div class="flow-node" id="flow-step-2">
+            <div class="flow-dot">2</div>
+            <div class="flow-content">
+              <span class="flow-title">Review Sources Panel</span>
+              <span class="flow-desc">User verifies list of gathered documents and email threads.</span>
+            </div>
+          </div>
+          
+          <div class="flow-node" id="flow-step-3">
+            <div class="flow-dot">3</div>
+            <div class="flow-content">
+              <span class="flow-title">AI Synthesize Process</span>
+              <span class="flow-desc">Progress updates display what documents are being analyzed.</span>
+            </div>
+          </div>
+
+          <div class="flow-node" id="flow-step-4">
+            <div class="flow-dot">4</div>
+            <div class="flow-content">
+              <span class="flow-title">Review Generated Brief</span>
+              <span class="flow-desc">View executive summaries, alerts, and potential questions.</span>
+            </div>
+          </div>
+
+          <div class="flow-node" id="flow-step-5">
+            <div class="flow-dot">5</div>
+            <div class="flow-content">
+              <span class="flow-title">Share Briefing Dialog</span>
+              <span class="flow-desc">Explicit consent parameters for emailing or link sharing.</span>
+            </div>
+          </div>
+
+          <div class="flow-node" id="flow-step-6">
+            <div class="flow-dot">6</div>
+            <div class="flow-content">
+              <span class="flow-title">Meeting Starts</span>
+              <span class="flow-desc">All attendees aligned and ready with shared context.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid var(--port-border); padding-top: 14px; margin-top: auto;">
+      <h4 style="font-size:11px;color:var(--port-text-muted);text-transform:uppercase;margin-bottom:6px">Portfolio Nav</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button class="btn btn-secondary" style="font-size:11px;padding:6px;background:var(--port-card);color:#fff;border-color:var(--port-border)" onclick="resetCalendarDemo()">Reset Demo</button>
+        <button class="btn btn-secondary" style="font-size:11px;padding:6px;background:var(--port-card);color:#fff;border-color:var(--port-border)" onclick="openSettingsGlobal()">Settings</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // App Demo State
+  let currentState = 'calendar'; // calendar | event_nudge | sources_review | generating | briefing | briefing_edit | share | settings
+  let previousStateBeforeSettings = 'calendar';
+  let briefShared = false;
+  let activeSidebarTab = 'principles';
+
+  // Source list tracking
+  const sourcesData = {
+    's-mail1': { category: 'mail', checked: true, title: 'Q2 Roadmap thread', meta: 'Sara Lin, James Kim · May 28' },
+    's-mail2': { category: 'mail', checked: true, title: 'Stakeholder update', meta: 'James Kim · Jun 1' },
+    's-mail3': { category: 'mail', checked: true, title: 'Budget approval thread', meta: 'Sara Lin · Jun 3' },
+    's-doc1':  { category: 'doc',  checked: true, title: 'Q2 Roadmap v3.docx', meta: 'Edited Jun 2 by Sara Lin' },
+    's-doc2':  { category: 'doc',  checked: true, title: 'Sprint 14 notes', meta: 'Edited Jun 4 by James Kim' },
+    's-hist1': { category: 'history', checked: true, title: 'Q1 Stakeholder Review', meta: 'Same attendees · Apr 15' }
+  };
+
+  // Mock Document contents shown when clicking title to read
+  const mockSourceContents = {
+    's-mail1': {
+      title: 'Q2 Roadmap thread (Gmail)',
+      html: `
+        <div class="email-view">
+          <div class="email-meta-row"><strong>From:</strong> Sara Lin (sara.lin@company.com)</div>
+          <div class="email-meta-row"><strong>To:</strong> James Kim, Wei Chen</div>
+          <div class="email-meta-row"><strong>Date:</strong> May 28, 2026, 4:12 PM</div>
+          <div class="email-meta-row"><strong>Subject:</strong> Re: Q2 Roadmap adjustments</div>
+          <div class="email-body-text">
+            Hi team, <br><br>
+            We need to review the Q2 roadmap targets. The finance department informed me that our Q3 budget ceiling is being adjusted down by 12% due to corporate-wide changes. <br><br>
+            This will definitely impact our ability to launch the mobile features in Q3 unless we reduce staffing on the migration project. Wei, could you prepare the numbers for the meeting on Friday?
+          </div>
+        </div>
+      `
+    },
+    's-mail2': {
+      title: 'Stakeholder update (Gmail)',
+      html: `
+        <div class="email-view">
+          <div class="email-meta-row"><strong>From:</strong> James Kim (james.kim@company.com)</div>
+          <div class="email-meta-row"><strong>To:</strong> Sara Lin, Wei Chen</div>
+          <div class="email-meta-row"><strong>Date:</strong> June 1, 2026, 10:15 AM</div>
+          <div class="email-meta-row"><strong>Subject:</strong> Stakeholder Feedback summary</div>
+          <div class="email-body-text">
+            Hi Sara, <br><br>
+            I spoke with the stakeholders regarding the Q3 targets. They are expecting sign-off on the roadmap during our next review. <br><br>
+            However, they emphasized that the budget ceiling of -12% is firm. They also asked if we have a clear owner for the system migration task since that is a prerequisite for our Q4 security audit.
+          </div>
+        </div>
+      `
+    },
+    's-mail3': {
+      title: 'Budget approval thread (Gmail)',
+      html: `
+        <div class="email-view">
+          <div class="email-meta-row"><strong>From:</strong> Sara Lin (sara.lin@company.com)</div>
+          <div class="email-meta-row"><strong>To:</strong> Finance Approvals</div>
+          <div class="email-meta-row"><strong>Date:</strong> June 3, 2026, 2:45 PM</div>
+          <div class="email-meta-row"><strong>Subject:</strong> Q3 budget confirmation</div>
+          <div class="email-body-text">
+            Dear Finance team, <br><br>
+            We accept the revised -12% budget ceiling ($440,000 for Q3). <br><br>
+            I am scheduling a review meeting with the engineering stakeholders to lock down the feature scope. Please let us know if there are any additional adjustments.
+          </div>
+        </div>
+      `
+    },
+    's-doc1': {
+      title: 'Q2 Roadmap v3.docx (Google Docs)',
+      html: `
+        <div class="doc-view">
+          <h1 style="font-size:18px;margin-bottom:12px;border-bottom:1px solid #dadce0;padding-bottom:6px">Q2 Product Roadmap Plan</h1>
+          <p><strong>Version:</strong> 3.0 (Draft)</p>
+          <p><strong>Author:</strong> Sara Lin, Product Lead</p>
+          <p><strong>Date:</strong> June 2, 2026</p>
+          <br>
+          <h2 style="font-size:14px;margin-bottom:8px">1. Executive Summary</h2>
+          <p>This document outlines targets for the product team. Q2 was focused on improving infrastructure stability. Feature velocity targets (+18% improvement) were met.</p>
+          <br>
+          <h2 style="font-size:14px;margin-bottom:8px">2. Q3 Resource Restrictions</h2>
+          <p>Due to a revised budget ceiling (-12%), total spend is capped at $440,000. Resource shifts are required.</p>
+          <br>
+          <h2 style="font-size:14px;margin-bottom:8px">3. Mobile Scope</h2>
+          <p>Mobile capability development was delayed from Q2 to Q3. Reviewing if this is still the top priority given the lower budget.</p>
+        </div>
+      `
+    },
+    's-doc2': {
+      title: 'Sprint 14 notes (Notion)',
+      html: `
+        <div class="doc-view">
+          <h1 style="font-size:18px;margin-bottom:12px;border-bottom:1px solid #dadce0;padding-bottom:6px">Sprint 14 Retrospective & Notes</h1>
+          <p><strong>Date:</strong> June 4, 2026</p>
+          <p><strong>Attendees:</strong> James, Wei, Dev team</p>
+          <br>
+          <h2 style="font-size:14px;margin-bottom:8px">Velocity Updates</h2>
+          <p>Completed 42 story points. Backend refactoring is 90% done.</p>
+          <br>
+          <h2 style="font-size:14px;margin-bottom:8px">Migration Blocker</h2>
+          <p>The legacy server migration is critical. We need a designated project owner. Currently, Wei Chen has confirmed he can take over the scoping guidelines starting May 3.</p>
+        </div>
+      `
+    },
+    's-hist1': {
+      title: 'Q1 Stakeholder Review (Google Calendar Notes)',
+      html: `
+        <div class="doc-view">
+          <h1 style="font-size:18px;margin-bottom:12px;border-bottom:1px solid #dadce0;padding-bottom:6px">Q1 Stakeholder Review Minutes</h1>
+          <p><strong>Date:</strong> April 15, 2026</p>
+          <p><strong>Attendees:</strong> Sara Lin, James Kim, Wei Chen, External Stakeholders</p>
+          <br>
+          <h2 style="font-size:14px;margin-bottom:8px">Key Decisions</h2>
+          <ul>
+            <li>Mobile development is deferred from Q2 to Q3 to prioritize backend stabilization. (Unanimously agreed).</li>
+            <li>Wei Chen will own the migration scope definition. (Target confirmation by early May).</li>
+            <li>Closed 3 pending action items from the Q4 review.</li>
+          </ul>
+        </div>
+      `
+    }
+  };
+
+  // Recipient checkboxes
+  const shareRecipients = {
+    sara: true,
+    james: true,
+    wei: true
+  };
+
+  // Agent settings variables
+  let settingsConfig = {
+    enabled: true,
+    showSources: true,
+    notifyTime: '10 min',
+    ingestMail: true,
+    ingestDrive: true,
+    ingestHistory: true
+  };
+
+  // Dynamic Case Study explanations based on Microsoft Agent UX guidelines
+  const caseStudyText = {
+    calendar: {
+      state: "Calendar Idle",
+      title: "Connecting, not Collapsing",
+      notes: "The agent remains largely invisible in the background until needed, representing Microsoft's <strong>'Easily accessible yet occasionally invisible'</strong> guideline.<br><br><strong>Design Attributes:</strong><br>• <strong>Workspace Connection:</strong> Prep integrates with Google Calendar events without overriding existing habits.<br>• <strong>Discoverability:</strong> The sparkle badge signals that context has been pre-indexed without taking over the screen. Click on Friday's meeting block to review.",
+      tags: ["Accessibility", "Invisible Agent", "Host Integration"]
+    },
+    event_nudge: {
+      state: "Proactive Nudge",
+      title: "Nudging More Than Notifying",
+      notes: "Surfaced contextual cards display statistics instead of abstract warnings. This represents the Microsoft guideline <strong>'Nudging more than notifying (around Now)'</strong>.<br><br><strong>Design Attributes:</strong><br>• <strong>Contextual timing:</strong> Shows 10m before the meeting when focus is high.<br>• <strong>Expectation setting:</strong> States the file counts ('3 emails, 2 docs') so users understand the depth of context.",
+      tags: ["Proactivity", "Contextual Nudges"]
+    },
+    sources_review: {
+      state: "Step 1: Source Review",
+      title: "Embracing Uncertainty & Trust",
+      notes: "The mandatory gating step represents Microsoft's <strong>'Embrace uncertainty but establish appropriate trust'</strong> principle.<br><br><strong>Design Attributes:</strong><br>• <strong>Trust boundaries:</strong> Users inspect files before summaries are compiled, preventing incorrect data ingestion.<br>• <strong>Absolute Veto Control:</strong> Users can exclude specific files or inject custom text notes directly. Click a source row to test the content reader.",
+      tags: ["User Control", "Transparency", "Human-in-the-Loop"]
+    },
+    generating: {
+      state: "Step 2: Synthesize Progress",
+      title: "Process Transparency",
+      notes: "Establishing trust requires visual honesty about what the agent is doing under the hood.<br><br><strong>Design Attributes:</strong><br>• <strong>Clear Status Logs:</strong> Displaying file-by-file compile lines ('Reading v3.docx...', 'Synthesizing budget ceiling...') removes the AI black-box feeling.<br>• <strong>Confidence calibration:</strong> Users can verify exactly where data points come from.",
+      tags: ["Feedback Logs", "System Reasoning"]
+    },
+    briefing: {
+      state: "Step 3: Review Brief",
+      title: "Structured Actionability",
+      notes: "Microsoft's guidelines advocate for agents to **'broaden and scale human capacities'** by presenting key summaries concisely.<br><br><strong>Design Attributes:</strong><br>• <strong>Urgency zoning:</strong> A dedicated, styled 'Heads-up' alert box places critical figures (e.g. budget ceiling reduction) at the top.<br>• <strong>Potential questions:</strong> Pre-calculates discussion triggers.<br>• <strong>Manual Override:</strong> Users can edit the generated brief, retaining final control.",
+      tags: ["Executive Summary", "Veto Override"]
+    },
+    briefing_edit: {
+      state: "Step 3: Edit Brief Mode",
+      title: "Co-Drafting & User Ownership",
+      notes: "The agent creates the initial synthesized draft, but the human user owns the final communication.<br><br><strong>Design Attributes:</strong><br>• <strong>Taller editing workspace:</strong> Long, dedicated text overlays make corrections easy.<br>• <strong>Accountability:</strong> Users sign off on figures before sharing, ensuring professional communication.",
+      tags: ["Draft Correction", "Shared Agency"]
+    },
+    share: {
+      state: "Step 4: Share Briefing",
+      title: "Explicit Sharing Consent",
+      notes: "AI agents should never write emails or share files automatically without explicit human consent.<br><br><strong>Design Attributes:</strong><br>• <strong>Zero Auto-Sharing:</strong> Sharing must be user-initiated.<br>• <strong>Targeted delivery:</strong> Checkboxes let the user include or exclude specific attendees (e.g. external vs. internal).",
+      tags: ["Consent", "Privacy Controls"]
+    },
+    settings: {
+      state: "Settings Customization",
+      title: "Granular Controls",
+      notes: "Microsoft stresses that **'Humans specify preferences and are in control.'**<br><br><strong>Design Attributes:</strong><br>• <strong>Bypassing friction:</strong> Toggling off 'Show source review panel' lets high-trust users skip verification steps.<br>• <strong>Data gating:</strong> Users can restrict specific data hooks (Mail, Drive, History) at any time.",
+      tags: ["Agency", "Privacy Boundaries"]
+    }
+  };
+
+  // State Navigation Engine
+  function goToStep(state) {
+    currentState = state;
+    
+    // Hide all popups and modal screens
+    document.getElementById('event-popover').style.display = 'none';
+    document.getElementById('wizard-overlay').style.display = 'none';
+    document.getElementById('modal-step-sources').style.display = 'none';
+    document.getElementById('modal-step-generating').style.display = 'none';
+    document.getElementById('modal-step-briefing').style.display = 'none';
+    document.getElementById('modal-step-share').style.display = 'none';
+    document.getElementById('modal-step-settings').style.display = 'none';
+
+    // Show appropriate screen
+    if (state === 'event_nudge') {
+      document.getElementById('event-popover').style.display = 'flex';
+    } 
+    else if (state === 'sources_review') {
+      document.getElementById('wizard-overlay').style.display = 'flex';
+      document.getElementById('modal-step-sources').style.display = 'flex';
+      renderSourcesList();
+    } 
+    else if (state === 'generating') {
+      document.getElementById('wizard-overlay').style.display = 'flex';
+      document.getElementById('modal-step-generating').style.display = 'flex';
+    } 
+    else if (state === 'briefing') {
+      document.getElementById('wizard-overlay').style.display = 'flex';
+      document.getElementById('modal-step-briefing').style.display = 'flex';
+      renderSourcesUsedList();
+    } 
+    else if (state === 'briefing_edit') {
+      document.getElementById('wizard-overlay').style.display = 'flex';
+      document.getElementById('modal-step-briefing').style.display = 'flex';
+      renderSourcesUsedList();
+    }
+    else if (state === 'share') {
+      document.getElementById('wizard-overlay').style.display = 'flex';
+      document.getElementById('modal-step-share').style.display = 'flex';
+    } 
+    else if (state === 'settings') {
+      document.getElementById('wizard-overlay').style.display = 'flex';
+      document.getElementById('modal-step-settings').style.display = 'flex';
+    }
+
+    updateCaseStudyPanel(state);
+    syncFlowDiagramUI(state);
+  }
+
+  // Update Case Study Principles Panel UI
+  function updateCaseStudyPanel(state) {
+    const caseStudy = caseStudyText[state] || caseStudyText['calendar'];
+    const container = document.getElementById('case-study-details');
+    
+    let tagsHtml = '';
+    caseStudy.tags.forEach(tag => {
+      tagsHtml += `<span class="ux-principle-tag">${tag}</span>`;
+    });
+
+    container.innerHTML = `
+      <div class="step-indicator-badge">Current State: ${caseStudy.state}</div>
+      <h3 class="step-topic">${caseStudy.title}</h3>
+      <div class="step-notes">${caseStudy.notes}</div>
+      <div style="margin-top:10px">${tagsHtml}</div>
+    `;
+  }
+
+  // Synchronize Active User Flow Node highlighting
+  function syncFlowDiagramUI(state) {
+    for (let i = 1; i <= 6; i++) {
+      document.getElementById(`flow-step-${i}`).classList.remove('active-flow');
+    }
+
+    let activeNodeIndex = 1;
+    if (state === 'calendar' || state === 'event_nudge') activeNodeIndex = 1;
+    else if (state === 'sources_review') activeNodeIndex = 2;
+    else if (state === 'generating') activeNodeIndex = 3;
+    else if (state === 'briefing' || state === 'briefing_edit') activeNodeIndex = 4;
+    else if (state === 'share') activeNodeIndex = 5;
+
+    document.getElementById(`flow-step-${activeNodeIndex}`).classList.add('active-flow');
+    
+    if (briefShared && state === 'calendar') {
+      document.getElementById('flow-step-6').classList.add('active-flow');
+    }
+  }
+
+  // Tab switching in Case Study Sidebar
+  function switchSidebarTab(tabName) {
+    activeSidebarTab = tabName;
+    
+    const principlesTab = document.getElementById('sidebar-tab-principles');
+    const flowTab = document.getElementById('sidebar-tab-flow');
+    const principlesBtn = document.getElementById('tab-btn-principles');
+    const flowBtn = document.getElementById('tab-btn-flow');
+
+    if (tabName === 'principles') {
+      principlesTab.style.display = 'flex';
+      flowTab.style.display = 'none';
+      principlesBtn.classList.add('active');
+      flowBtn.classList.remove('active');
+    } else {
+      principlesTab.style.display = 'none';
+      flowTab.style.display = 'flex';
+      principlesBtn.classList.remove('active');
+      flowBtn.classList.add('active');
+    }
+  }
+
+  // Reset Demo
+  function resetCalendarDemo() {
+    briefShared = false;
+    
+    document.getElementById('nudge-unsent-state').style.display = 'block';
+    document.getElementById('nudge-sent-state').style.display = 'none';
+
+    const badge = document.getElementById('meeting-badge');
+    badge.className = 'sparkle-badge';
+    badge.innerHTML = '<i class="ti ti-sparkles" style="font-size:8px"></i> Prep ready';
+    
+    // Reset sources checklist back to defaults
+    // Note: Re-inject elements if deleted
+    rebuildDefaultSourcesDOM();
+
+    // Clean custom notes container
+    document.getElementById('notes-container').innerHTML = '';
+    
+    // Clean custom notes and manual entries from data object
+    Object.keys(sourcesData).forEach(id => {
+      if (id.startsWith('s-text-new-') || id.startsWith('s-mail-new-') || id.startsWith('s-doc-new-') || id.startsWith('s-hist-new-')) {
+        delete sourcesData[id];
+        delete mockSourceContents[id];
+      }
+    });
+
+    // Reset share checkbox selections
+    Object.keys(shareRecipients).forEach(id => {
+      shareRecipients[id] = true;
+      const chk = document.getElementById(`share-rec-${id}`);
+      if (chk) chk.checked = true;
+    });
+
+    // Remove added outside guests from sharing panel container
+    const container = document.getElementById('recipients-list-container');
+    const addedRows = container.querySelectorAll('.added-outside-guest');
+    addedRows.forEach(row => row.remove());
+
+    goToStep('calendar');
+  }
+
+  // Helper to reconstruct defaults on reset
+  function rebuildDefaultSourcesDOM() {
+    sourcesData['s-mail1'] = { category: 'mail', checked: true, title: 'Q2 Roadmap thread', meta: 'Sara Lin, James Kim · May 28' };
+    sourcesData['s-mail2'] = { category: 'mail', checked: true, title: 'Stakeholder update', meta: 'James Kim · Jun 1' };
+    sourcesData['s-mail3'] = { category: 'mail', checked: true, title: 'Budget approval thread', meta: 'Sara Lin · Jun 3' };
+    sourcesData['s-doc1']  = { category: 'doc',  checked: true, title: 'Q2 Roadmap v3.docx', meta: 'Edited Jun 2 by Sara Lin' };
+    sourcesData['s-doc2']  = { category: 'doc',  checked: true, title: 'Sprint 14 notes', meta: 'Edited Jun 4 by James Kim' };
+    sourcesData['s-hist1'] = { category: 'history', checked: true, title: 'Q1 Stakeholder Review', meta: 'Same attendees · Apr 15' };
+
+    document.getElementById('emails-container').innerHTML = `
+      <div class="source-row" id="s-mail1">
+        <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-mail1')">
+        <div class="source-clickable-area" onclick="openDocPreview('s-mail1')">
+          <div class="source-icon bg-mail"><i class="ti ti-mail"></i></div>
+          <div class="source-details">
+            <div class="source-title">Q2 Roadmap thread</div>
+            <div class="source-meta">Sara Lin, James Kim · May 28</div>
+          </div>
+        </div>
+        <button class="source-btn-delete" onclick="deleteSource(event, 's-mail1')"><i class="ti ti-trash"></i></button>
+      </div>
+      <div class="source-row" id="s-mail2">
+        <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-mail2')">
+        <div class="source-clickable-area" onclick="openDocPreview('s-mail2')">
+          <div class="source-icon bg-mail"><i class="ti ti-mail"></i></div>
+          <div class="source-details">
+            <div class="source-title">Stakeholder update</div>
+            <div class="source-meta">James Kim · Jun 1</div>
+          </div>
+        </div>
+        <button class="source-btn-delete" onclick="deleteSource(event, 's-mail2')"><i class="ti ti-trash"></i></button>
+      </div>
+      <div class="source-row" id="s-mail3">
+        <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-mail3')">
+        <div class="source-clickable-area" onclick="openDocPreview('s-mail3')">
+          <div class="source-icon bg-mail"><i class="ti ti-mail"></i></div>
+          <div class="source-details">
+            <div class="source-title">Budget approval thread</div>
+            <div class="source-meta">Sara Lin · Jun 3</div>
+          </div>
+        </div>
+        <button class="source-btn-delete" onclick="deleteSource(event, 's-mail3')"><i class="ti ti-trash"></i></button>
+      </div>
+    `;
+
+    document.getElementById('docs-container').innerHTML = `
+      <div class="source-row" id="s-doc1">
+        <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-doc1')">
+        <div class="source-clickable-area" onclick="openDocPreview('s-doc1')">
+          <div class="source-icon bg-doc"><i class="ti ti-file-text"></i></div>
+          <div class="source-details">
+            <div class="source-title">Q2 Roadmap v3.docx</div>
+            <div class="source-meta">Edited Jun 2 by Sara Lin</div>
+          </div>
+        </div>
+        <button class="source-btn-delete" onclick="deleteSource(event, 's-doc1')"><i class="ti ti-trash"></i></button>
+      </div>
+      <div class="source-row" id="s-doc2">
+        <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-doc2')">
+        <div class="source-clickable-area" onclick="openDocPreview('s-doc2')">
+          <div class="source-icon bg-notion"><span style="font-size:10px;font-weight:700">N</span></div>
+          <div class="source-details">
+            <div class="source-title">Sprint 14 notes</div>
+            <div class="source-meta">Edited Jun 4 by James Kim</div>
+          </div>
+        </div>
+        <button class="source-btn-delete" onclick="deleteSource(event, 's-doc2')"><i class="ti ti-trash"></i></button>
+      </div>
+    `;
+
+    document.getElementById('history-container').innerHTML = `
+      <div class="source-row" id="s-hist1">
+        <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('s-hist1')">
+        <div class="source-clickable-area" onclick="openDocPreview('s-hist1')">
+          <div class="source-icon bg-hist"><i class="ti ti-calendar"></i></div>
+          <div class="source-details">
+            <div class="source-title">Q1 Stakeholder Review</div>
+            <div class="source-meta">Same attendees · Apr 15</div>
+          </div>
+        </div>
+        <button class="source-btn-delete" onclick="deleteSource(event, 's-hist1')"><i class="ti ti-trash"></i></button>
+      </div>
+    `;
+
+    updateNudgeStats();
+  }
+
+  // Calendar popover trigger
+  function openPopover() {
+    if (briefShared) {
+      document.getElementById('nudge-unsent-state').style.display = 'none';
+      document.getElementById('nudge-sent-state').style.display = 'block';
+    } else {
+      document.getElementById('nudge-unsent-state').style.display = 'block';
+      document.getElementById('nudge-sent-state').style.display = 'none';
+    }
+    goToStep('event_nudge');
+  }
+
+  function closePopover() {
+    goToStep('calendar');
+  }
+
+  function closeWizard() {
+    goToStep('calendar');
+  }
+
+  function directToBriefing() {
+    goToStep('briefing');
+  }
+
+  // Checklist view checks sync
+  function renderSourcesList() {
+    Object.keys(sourcesData).forEach(id => {
+      const row = document.getElementById(id);
+      if (row) {
+        const checkbox = row.querySelector('.source-checkbox');
+        if (checkbox) {
+          checkbox.checked = sourcesData[id].checked;
+        }
+        if (sourcesData[id].checked) {
+          row.classList.remove('excluded');
+        } else {
+          row.classList.add('excluded');
+        }
+      }
+    });
+  }
+
+  // Toggle Source checklist inclusion
+  function toggleSourceInclusion(id) {
+    if (sourcesData[id]) {
+      const row = document.getElementById(id);
+      const checkbox = row.querySelector('.source-checkbox');
+      sourcesData[id].checked = checkbox.checked;
+      
+      if (sourcesData[id].checked) {
+        row.classList.remove('excluded');
+      } else {
+        row.classList.add('excluded');
+      }
+    }
+  }
+
+  // Soft delete a source
+  function deleteSource(event, id) {
+    event.stopPropagation();
+    const row = document.getElementById(id);
+    if (row) {
+      row.style.transform = 'scale(0.9)';
+      row.style.opacity = '0';
+      setTimeout(() => {
+        row.remove();
+        delete sourcesData[id];
+        updateNudgeStats();
+      }, 150);
+    }
+  }
+
+  // Toggle Header Info Section
+  function toggleHeaderInfo() {
+    const desc = document.getElementById('header-info-desc');
+    const shown = desc.style.display === 'block';
+    desc.style.display = shown ? 'none' : 'block';
+  }
+
+  // Toggle manual add source form views
+  function showAddForm(formId, inputId) {
+    const form = document.getElementById(formId);
+    const shown = form.style.display === 'flex' || form.style.display === 'block';
+    form.style.display = shown ? 'none' : 'flex';
+    if (!shown) {
+      document.getElementById(inputId).focus();
+    }
+  }
+
+  // Submit manual doc/email/text addition
+  function submitAddSource(type) {
+    const input = document.getElementById(`add-${type}-input`);
+    const val = input.value.trim();
+    if (!val) return;
+
+    const id = `s-${type}-new-${Date.now()}`;
+    const category = type === 'text' ? 'note' : (type === 'hist' ? 'history' : type);
+    
+    // Store in data object
+    sourcesData[id] = {
+      category: category,
+      checked: true,
+      title: type === 'text' ? (val.length > 22 ? val.substring(0,22) + '...' : val) : val,
+      meta: type === 'text' ? 'Custom text note' : (type === 'hist' ? 'Added past meeting reference' : 'Added manually by user')
+    };
+
+    // Store custom preview content
+    if (type === 'text') {
+      mockSourceContents[id] = {
+        title: 'User Added Note',
+        html: `
+          <div class="doc-view">
+            <h3 style="font-size:15px;margin-bottom:8px;color:var(--g-blue)"><i class="ti ti-note"></i> Custom User Context</h3>
+            <p style="padding:10px;background:#f9f9f9;border-left:3px solid var(--g-blue);border-radius:4px;white-space:pre-wrap">${val}</p>
+          </div>
+        `
+      };
+    } else if (type === 'hist') {
+      mockSourceContents[id] = {
+        title: `${val} (Calendar History Preview)`,
+        html: `
+          <div class="doc-view">
+            <h3 style="font-size:15px;margin-bottom:8px;color:var(--g-blue)"><i class="ti ti-calendar"></i> Historical Meeting Notes</h3>
+            <p><strong>Event Title:</strong> ${val}</p>
+            <p style="color:var(--g-text2);margin-top:12px">Retrieved meeting records from calendar archives. Notes are encrypted and securely saved.</p>
+          </div>
+        `
+      };
+    } else {
+      mockSourceContents[id] = {
+        title: `${val} (Manual Reference)`,
+        html: `
+          <div class="doc-view">
+            <h3 style="font-size:15px;margin-bottom:8px;color:var(--g-blue)"><i class="ti ti-file"></i> Reference Added Manually</h3>
+            <p><strong>Path/Subject:</strong> ${val}</p>
+            <p style="color:var(--g-text2);margin-top:12px">Content details are simulated based on the manually entered address or file title.</p>
+          </div>
+        `
+      };
+    }
+
+    // Render row in checklist UI
+    const row = document.createElement('div');
+    row.className = 'source-row';
+    row.id = id;
+
+    const bgClass = type === 'mail' ? 'bg-mail' : (type === 'doc' ? 'bg-doc' : (type === 'hist' ? 'bg-hist' : 'bg-user'));
+    const iconClass = type === 'mail' ? 'ti-mail' : (type === 'doc' ? 'ti-file-text' : (type === 'hist' ? 'ti-calendar' : 'ti-pencil'));
+
+    row.innerHTML = `
+      <input type="checkbox" checked class="source-checkbox" onchange="toggleSourceInclusion('${id}')">
+      <div class="source-clickable-area" onclick="openDocPreview('${id}')">
+        <div class="source-icon ${bgClass}"><i class="ti ${iconClass}"></i></div>
+        <div class="source-details">
+          <div class="source-title">${sourcesData[id].title}</div>
+          <div class="source-meta">${sourcesData[id].meta}</div>
+        </div>
+      </div>
+      <button class="source-btn-delete" onclick="deleteSource(event, '${id}')"><i class="ti ti-trash"></i></button>
+    `;
+
+    // Append to corresponding container
+    if (type === 'mail') {
+      document.getElementById('emails-container').appendChild(row);
+      document.getElementById('add-mail-form').style.display = 'none';
+    } else if (type === 'doc') {
+      document.getElementById('docs-container').appendChild(row);
+      document.getElementById('add-doc-form').style.display = 'none';
+    } else if (type === 'hist') {
+      document.getElementById('history-container').appendChild(row);
+      document.getElementById('add-hist-form').style.display = 'none';
+    } else if (type === 'text') {
+      document.getElementById('notes-container').appendChild(row);
+      document.getElementById('add-text-form').style.display = 'none';
+    }
+
+    input.value = '';
+    updateNudgeStats();
+    renderSourcesList();
+    showToast(`Added source: ${sourcesData[id].title}`);
+  }
+
+  // Update badge stats
+  function updateNudgeStats() {
+    let emails = 0, docs = 0, history = 0, notes = 0;
+    Object.values(sourcesData).forEach(src => {
+      if (src.category === 'mail') emails++;
+      if (src.category === 'doc') docs++;
+      if (src.category === 'history') history++;
+      if (src.category === 'note') notes++;
+    });
+
+    const label = `${emails} email${emails !== 1 ? 's' : ''} · ${docs} doc${docs !== 1 ? 's' : ''} · ${history} meeting${history !== 1 ? 's' : ''} ${notes > 0 ? '· ' + notes + ' custom note' + (notes !== 1 ? 's' : '') : ''} found`;
+    document.getElementById('nudge-stats-label').innerText = label;
+  }
+
+  // Document preview click popup
+  function openDocPreview(id) {
+    const previewData = mockSourceContents[id];
+    if (previewData) {
+      document.getElementById('doc-viewer-title').innerHTML = `<i class="ti ti-file-text"></i> ${previewData.title}`;
+      document.getElementById('doc-viewer-content').innerHTML = previewData.html;
+      document.getElementById('doc-viewer').style.display = 'flex';
+      
+      updateCaseStudyPanel(currentState);
+    }
+  }
+
+  function closeDocViewer() {
+    document.getElementById('doc-viewer').style.display = 'none';
+  }
+
+  // Loading sequence
+  function startGeneration() {
+    goToStep('generating');
+    
+    const progressFill = document.getElementById('generation-progress-bar');
+    const statusText = document.getElementById('generation-status-text');
+    progressFill.style.width = '0%';
+    
+    const statusSteps = [
+      { text: "Connecting securely to Google Workspace...", delay: 0 },
+      { text: "Reading emails: Q2 Roadmap thread...", delay: 400 },
+      { text: "Parsing document context: Q2 Roadmap v3.docx...", delay: 800 },
+      { text: "Reading Sprint 14 team notes...", delay: 1200 },
+      { text: "Checking points from Q1 Stakeholder Review...", delay: 1600 },
+      { text: "Synthesizing budget ceiling variations (-12%)...", delay: 2000 },
+      { text: "Finalizing briefing structure...", delay: 2300 }
+    ];
+
+    statusSteps.forEach(step => {
+      setTimeout(() => {
+        if (currentState === 'generating') {
+          statusText.innerText = step.text;
+        }
+      }, step.delay);
+    });
+
+    let start = null;
+    const duration = 2600;
+
+    function stepProgress(timestamp) {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      const pct = Math.min((progress / duration) * 100, 100);
+      progressFill.style.width = `${pct}%`;
+      
+      if (progress < duration) {
+        if (currentState === 'generating') {
+          window.requestAnimationFrame(stepProgress);
+        }
+      } else {
+        if (currentState === 'generating') {
+          goToStep('briefing');
+        }
+      }
+    }
+    
+    window.requestAnimationFrame(stepProgress);
+  }
+
+  // Populate briefing sidebar consulted items
+  function renderSourcesUsedList() {
+    const container = document.getElementById('sources-used-chips-container');
+    container.innerHTML = '';
+
+    let hasAnyUsed = false;
+    Object.keys(sourcesData).forEach(id => {
+      const src = sourcesData[id];
+      if (src.checked) {
+        hasAnyUsed = true;
+        const chip = document.createElement('div');
+        chip.className = 'source-row';
+        chip.style.cursor = 'default';
+        chip.style.background = 'transparent';
+        
+        const bgClass = src.category === 'mail' ? 'bg-mail' : (src.category === 'doc' ? 'bg-doc' : (src.category === 'history' ? 'bg-hist' : 'bg-user'));
+        const iconClass = src.category === 'mail' ? 'ti-mail' : (src.category === 'doc' ? 'ti-file-text' : (src.category === 'history' ? 'ti-calendar' : 'ti-pencil'));
+
+        chip.innerHTML = `
+          <div class="source-icon ${bgClass}" style="width:20px;height:20px;font-size:10px"><i class="ti ${iconClass}"></i></div>
+          <div class="source-details">
+            <div class="source-title" style="font-size:11.5px">${src.title}</div>
+            <div class="source-meta" style="font-size:9.5px">${src.meta}</div>
+          </div>
+          <i class="ti ti-circle-check" style="color:var(--g-green);font-size:14px;margin-left:4px"></i>
+        `;
+        container.appendChild(chip);
+      }
+    });
+
+    if (!hasAnyUsed) {
+      container.innerHTML = '<div style="padding:16px;font-size:12px;color:var(--g-text3)">No sources selected. Brief generated with general context.</div>';
+    }
+  }
+
+  // Toggle edit briefing sheet text
+  function toggleEditBriefMode(editOn) {
+    const editor = document.getElementById('briefing-edit-overlay');
+    const layout = document.getElementById('briefing-split-layout');
+    const footer = document.getElementById('briefing-footer-buttons');
+    const viewHeader = document.getElementById('briefing-view-header');
+    const editHeader = document.getElementById('briefing-edit-header');
+    const stepsBar = document.getElementById('briefing-steps-bar');
+
+    if (editOn) {
+      const textToEdit = document.getElementById('brief-rendered-body').innerText;
+      document.getElementById('brief-textarea-editor').value = textToEdit;
+      
+      editor.style.display = 'flex';
+      layout.style.display = 'none';
+      footer.style.display = 'none';
+      viewHeader.style.display = 'none';
+      editHeader.style.display = 'flex';
+      stepsBar.style.display = 'none';
+      goToStep('briefing_edit');
+    } else {
+      editor.style.display = 'none';
+      layout.style.display = 'flex';
+      footer.style.display = 'flex';
+      viewHeader.style.display = 'flex';
+      editHeader.style.display = 'none';
+      stepsBar.style.display = 'flex';
+      goToStep('briefing');
+    }
+  }
+
+  // Save changes from editor sheet
+  function saveBriefChanges() {
+    const rawVal = document.getElementById('brief-textarea-editor').value;
+    document.getElementById('brief-rendered-body').innerHTML = `
+      <div style="font-family:var(--font);font-size:13.5px;color:var(--g-text);line-height:1.6;white-space:pre-wrap">${rawVal}</div>
+    `;
+
+    showToast("Briefing changes updated successfully!");
+    toggleEditBriefMode(false);
+  }
+
+  // Select share channels
+  function selectShareOption(method) {
+    document.getElementById('share-opt-mail').classList.remove('selected');
+    document.getElementById('share-opt-link').classList.remove('selected');
+    document.getElementById('share-opt-all').classList.remove('selected');
+
+    document.getElementById(`share-opt-${method}`).classList.add('selected');
+    document.getElementById(`share-opt-${method}`).querySelector('.share-option-radio').checked = true;
+    
+    const checklist = document.getElementById('recipient-checklist-panel');
+    if (method === 'mail') {
+      checklist.style.display = 'block';
+    } else {
+      checklist.style.display = 'none';
+    }
+  }
+
+  // Toggle attendee checklist items
+  function toggleRecipient(id) {
+    const chk = document.getElementById(`share-rec-${id}`);
+    shareRecipients[id] = chk.checked;
+  }
+
+  // Add guest outside invite checklist (append underneath in order)
+  function addOutsideRecipient() {
+    const input = document.getElementById('share-outside-input');
+    const val = input.value.trim();
+    if (!val) return;
+
+    const row = document.createElement('div');
+    row.className = 'share-recipient-row added-outside-guest';
+    
+    const name = val.split('@')[0];
+    const initial = name.substring(0,2).toUpperCase();
+    const uid = `rec-out-${Date.now()}`;
+
+    row.innerHTML = `
+      <div class="share-recipient-details">
+        <div class="guest-avatar" style="background:#5f6368;width:20px;height:20px;font-size:9px">${initial}</div>
+        <span>${val} <span style="font-size:11px;color:var(--g-text3)">(Outside invite)</span></span>
+      </div>
+      <input type="checkbox" checked class="share-recipient-checkbox" id="${uid}">
+    `;
+
+    // Append to list container directly underneath invite list (instead of side by side inside add-outside row)
+    document.getElementById('recipients-list-container').appendChild(row);
+    
+    // Wire check logic for added row
+    let active = true;
+    const chk = row.querySelector('.share-recipient-checkbox');
+    chk.onchange = function() {
+      active = chk.checked;
+    };
+
+    input.value = '';
+    showToast(`Added ${val} to recipients`);
+  }
+
+  // Complete Briefing Sharing
+  function sendBriefing() {
+    briefShared = true;
+    closeWizard();
+    showToast("Briefing shared successfully with team!");
+    
+    const badge = document.getElementById('meeting-badge');
+    badge.className = 'sparkle-badge shared-badge';
+    badge.innerHTML = '<i class="ti ti-check" style="font-size:8px"></i> Briefing shared';
+  }
+
+  // Settings modals
+  function openSettingsGlobal() {
+    previousStateBeforeSettings = currentState;
+    goToStep('settings');
+  }
+
+  function openSettingsFromPopover() {
+    previousStateBeforeSettings = 'event_nudge';
+    goToStep('settings');
+  }
+
+  function closeSettings() {
+    goToStep(previousStateBeforeSettings);
+  }
+
+  function toggleIngestionSource(source) {
+    const active = document.getElementById(`set-ingest-${source}`).checked;
+    showToast(`${source.toUpperCase()} ingestion source ${active ? 'enabled' : 'disabled'}`);
+  }
+
+  function saveSettings() {
+    settingsConfig.enabled = document.getElementById('set-agent-enabled').checked;
+    settingsConfig.showSources = document.getElementById('set-show-sources').checked;
+    settingsConfig.notifyTime = document.getElementById('set-notify-time').value;
+    
+    document.getElementById('nudge-time-label').innerText = settingsConfig.notifyTime;
+    
+    const nudge = document.getElementById('nudge-element');
+    if (!settingsConfig.enabled) {
+      nudge.style.display = 'none';
+      document.getElementById('meeting-badge').style.display = 'none';
+    } else {
+      nudge.style.display = 'block';
+      document.getElementById('meeting-badge').style.display = 'inline-flex';
+    }
+
+    closeSettings();
+    showToast("Agent preferences updated!");
+  }
+
+  function updateNudgeSettingsUI() {
+    const val = document.getElementById('set-notify-time').value;
+    showToast(`Nudge timing updated to: ${val}`);
+  }
+
+  // Toast notifier
+  function showToast(msg) {
+    const toast = document.getElementById('success-toast');
+    document.getElementById('toast-message-text').innerText = msg;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  // Initial State Load
+  goToStep('calendar');
+</script>
+
+</body>
+</html>
